@@ -6,9 +6,9 @@ I have gotten lots of knowledge from Erik's email. I can't keep the emails in my
 
 > If you have an email that it's not listed here, please send it to me so I can add it here.
 
-| Date        | Email subject |  Link
-| ----------- | -----------   |  ----------- 
-| Header      | Title         |  See the file
+| Date        | Email subject 
+| ----------- | -----------   
+| 09 Feb 2023      | [The best way to display tables on mobile... !](/Create The best way to display tables on mobile... 😱.md )
 | Header      | Title         |  See the file
 | Header      | Title         |  See the file
 
