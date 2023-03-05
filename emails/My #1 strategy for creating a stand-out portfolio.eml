@@ -1,0 +1,529 @@
+Delivered-To: lilapapazian@gmail.com
+Received: by 2002:a17:906:370a:0:0:0:0 with SMTP id d10csp7947178ejc;
+        Tue, 30 Nov 2021 03:04:00 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzDL38BEyV/QbLb4zLcLrT+gEuATpZVSCdKH2VxzI5CseQlbmiSh7CbdnKrFr0KrTsvEk7L
+X-Received: by 2002:a37:a411:: with SMTP id n17mr36466140qke.722.1638270240423;
+        Tue, 30 Nov 2021 03:04:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1638270240; cv=none;
+        d=google.com; s=arc-20160816;
+        b=fpl/3P9WtpVNMF+DkSfvZ4UtZnB3KCc4Mur2OeSjCFzevLdH9w4IPPJOKkXWVstwgO
+         gPqan3q8uQBnUaV7hRLc+/OCj8tGLK2IF7FlOdeBaP9YAuSKiGY9lORyvmPVfNVntE9m
+         9e7X8Lh2HqgklSS4dzLKe4ARGm4zeSIRrHVk6ZU5w3N87tCoYnIpUrTyHVNUWzTBFBmi
+         zX1z2jkpG5UGqVcKqypR6mW9ROtLE7WppSoedM8oeKpwFXFZ/dpf0Ra91KR5ixKfjpbQ
+         GVSe9IZYPn+9kBcqJ/rmkNYX6YjfGPbKjd/+QrlQQ8fwbPYcA67bBOl6JTW6QxyeAPqI
+         YdVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:precedence:list-unsubscribe:feedback-id:subject:message-id
+         :mime-version:from:date:dkim-signature:dkim-signature;
+        bh=p6hq/TJGLKOpoLk6CaLdXwuZhbp0NUIZhHyiYEBtpoY=;
+        b=Ei8lLJy1lyuBDylKcB8RMzQF74r3GyvlG72Spf218wbL/fq3JymgDCwG376xtGze49
+         ren3rmqMDvkOyT3CU3k1Igxf9ddSrGrGKMl1OkhJWKYqfGJ7unOgKOjZSOLkur096N1J
+         lOKMgJRM/NR9zsVEOvAxHlHGhhYkqouECPeviQHWeSwPGrhe3F5lREs35K6/wAUZ+hgd
+         rt/+HnauuSfAStV2TnxoY8WKxOT5MZi5UBDCU3ehIEIj8DqNjTu1VcJqdl4FVgaYIz8P
+         /uwpvzUGOVtbEXO/8lYD89gpB3JPcDf5JgDjY72VGEBAoRtMQUhSGp64aigLxeIyg7pP
+         fusQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b="n9N/6TLX";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=r2sVjTxN;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.30.32 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+Return-Path: <bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com>
+Received: from o15.ck.n.convertkit.com (o15.ck.n.convertkit.com. [167.89.30.32])
+        by mx.google.com with ESMTPS id h1si19296193qko.132.2021.11.30.03.03.59
+        for <lilapapazian@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Nov 2021 03:04:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.30.32 as permitted sender) client-ip=167.89.30.32;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b="n9N/6TLX";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=r2sVjTxN;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.30.32 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=n.convertkit.com;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to;
+	s=s1; bh=p6hq/TJGLKOpoLk6CaLdXwuZhbp0NUIZhHyiYEBtpoY=;
+	b=n9N/6TLXA9T2ld5NaqK7Igw0pTUf2CPz7OIwrhTQSi38IjObro6222GPA4bnxJctI1f5
+	XyoA14jM1iSpR1zdj7t52w0MZhvp5Nzjb4xRn61nyeFYBoLqN0gg0U+e0fpLNms1pHf0J1
+	izUQdeqZLCX/OSRFfdRZvegVtowdctWFCO3W0xMEKkEI36TOTIF2EuccjNCXnKYLMti9DF
+	QJtawhwj6lau9HFsjK3ykbm867IhLve5j4JsuGnxEv4axvJUgz4o1qJnMib2mlx03TuNJp
+	dsfDK0eW6QkhqZaU3Ha5odlFf2SrU7FTepYVGYt76KogrniYN8lqvYJ0zwLrJrtg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to;
+	s=smtpapi; bh=p6hq/TJGLKOpoLk6CaLdXwuZhbp0NUIZhHyiYEBtpoY=;
+	b=r2sVjTxN0QpNPlzBIXhji/xaFGCva4FHZdfnrFF0K294WOqe2PWOvrZxLCxiA7vVHCLG
+	5Pz9QVOxwJJvQIYcigWzAPzYy6WfQ+DzKCPEKM8UeDTB3IARuIJZdQhngrvxORCDLPTEqg
+	pbd4IwU28Ir+ZaVpS/caKalTQk7lksj5w=
+Received: by filterdrecv-75ff7b5ffb-t2q6v with SMTP id filterdrecv-75ff7b5ffb-t2q6v-1-61A6051D-75
+        2021-11-30 11:03:58.082515855 +0000 UTC m=+7735403.356612432
+Received: from ODc0OTYxMA (unknown)
+	by geopod-ismtpd-3-4 (SG) with HTTP
+	id CfQh0X4ZRXWkRFKMrYQrNQ
+	Tue, 30 Nov 2021 11:03:57.766 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=b3ee28528fa12358e26f1ace219765d2837b7c5da7eab3c69877dca52d40
+Date: Tue, 30 Nov 2021 11:03:58 +0000 (UTC)
+From: "Erik D. Kennedy" <erik@learnui.design>
+Mime-Version: 1.0
+Message-ID: <mvuk39g92xf5hl32l5fm@convertkit-mail.com>
+Subject: My #1 strategy for creating a stand-out portfolio
+Feedback-ID: 7099719:39008:broadcast:CK
+List-Unsubscribe: 
+ <https://unsubscribe.convertkit-mail.com/mvuk39g92xf5hl32l5fm>
+X-Report-Spam: <abuse@convertkit.com>
+X-Report-Abuse: <abuse@convertkit.com>
+Precedence: bulk
+X-Feedback-ID: 8749610:SG
+X-SG-EID: 
+ =?us-ascii?Q?EDG+KXEj7hMIzJV17jd5qsGcPZPEO4TsG4phGcpDP3WLU7hbEUvMpOEUmBbgkZ?=
+ =?us-ascii?Q?Hm2NaOmOBejwPTE2rTyqmytT5XJ56FNKTj5VZqK?=
+ =?us-ascii?Q?mHqkourrcA+CdQa+GJJ8eJwSEfqFiu1ida2pq9t?=
+ =?us-ascii?Q?OuMkS9j0t2XlUooNZ9TBlfLmLLeex+ApbCQKoLY?=
+ =?us-ascii?Q?Op0nh=2F4F5Ckaw78UyRiJwoa63vW7ypvxvOEk+HE?=
+ =?us-ascii?Q?RFrFhZmkZ1uvLWU1OmRrgGdWkxAEfwbESITE97?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJHjDFAea1uZocvZojyqe?=
+ =?us-ascii?Q?ADlGmSz9UoJiXk5=2Fd8KqXa5KMXQ4iCyRFTMGRqz?=
+ =?us-ascii?Q?tr3Zx6XOVCKeLr8KFcWdU01WGRttGrtkZg9TBBS?=
+ =?us-ascii?Q?B+hPOzY+swwnCBF2Lge14+HfHmo=2Fm2IUXUk0QXO?=
+ =?us-ascii?Q?JSs33QNMT+4Pj3YAB48pBaHXzFhbIPNFbkKA3Xk?=
+ =?us-ascii?Q?le1ZlOibcxauoRtXk1p=2FqN8PkDsZO7RAzvluybp?=
+ =?us-ascii?Q?M=2Fb+DmniK1jKAeedL4oNJgnL8+=2FpoMW=2FG0Mz2hQ?=
+ =?us-ascii?Q?BjRHiHPdmkM6lucRyG=2Fx6RrjRWW+zesoA=2FITUgk?=
+ =?us-ascii?Q?fBTgyNFgHlryUWH+I51En5LU3I3J=2Fz9ELXiXp15?=
+ =?us-ascii?Q?WliskqYUA1?=
+To: Lila <lilapapazian@gmail.com>
+X-Entity-ID: JG8Lqh/QTEp30TAc2PSDRA==
+
+--b3ee28528fa12358e26f1ace219765d2837b7c5da7eab3c69877dca52d40
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hey Lila,
+
+I just got back from a 5-week roadtrip around the country with my
+family (including a row full of kids in the back seat =F0=9F=99=88). We
+mostly visited family and friends, but I also hosted a few
+meetups around the nation =E2=80=93 and it was wonderful getting to talk
+with many of you about design and the industry.
+
+Also gave a guest lecture at my alma mater, Olin College =F0=9F=99=8C
+One topic that came up again and again was: making a good
+portfolio.
+
+I=E2=80=99ve already written 4,000 words on this (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/08hwh9hmg64kwvtl/aHR=
+0cHM6Ly9sZWFybnVpLmRlc2lnbi9ibG9nL2hvdy1jcmVhdGUtdXgtdWktcG9ydGZvbGlvLXdpdG=
+hvdXQtbXVjaC1leHBlcmllbmNlLmh0bWw=3D
+), but today, I want to emphasize a different lesson on creating
+a portfolio in 2021:
+
+There are now SO MANY bootcamps churning out designers that one
+of your MAIN PORTFOLIO GOALS is to AVOID looking like a typical
+bootcamp grad.
+
+You know what I'm talking about. I=E2=80=99m sure you=E2=80=99ve seen =E2=
+=80=9Cthe look=E2=80=9D:
+
+=E2=80=8B
+This above-the-fold section is just tremendously average:
+
+* Overused font (Open Sans)
+* Overused color for this type of design (blue)
+* Big intro sentence with salutation, name, position =E2=80=93 just like
+so many other portfolios
+* No attention to detail (selected =E2=80=9CWork=E2=80=9D is lighter (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/l2hehmho6mpzv9b6/aHR=
+0cHM6Ly90d2l0dGVyLmNvbS9lcmlrZGtlbm5lZHkvc3RhdHVzLzEzMjg3NzE1OTc3ODg3OTg5Nz=
+c=3D
+) the non-selected items; social icons are pitch black (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/z2hghnhop2z8rgcp/aHR=
+0cHM6Ly9pYW5zdG9ybXRheWxvci5jb20vZGVzaWduLXRpcC1uZXZlci11c2UtYmxhY2sv
+))
+
+So how do you think outside the box?
+
+My best advice: make something hard to re-create in Figma.
+
+In my opinion, if you really want your portfolio to stand out
+from the others, you should include some visuals that require an
+app besides Figma/Sketch to create: e.g. Photoshop, 3D, pixel
+art, animation, WebGL, etc.
+
+To test this, I signed up for Devon Ko=E2=80=99s highly respected =E2=80=9C=
+3D for
+Designers (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/x0hph6hn9vmllrt5/aHR=
+0cHM6Ly93d3cuM2Rmb3JkZXNpZ25lcnMuY29tLw=3D=3D
+)=E2=80=9D course.
+
+(
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/x0hph6hn9vmllrt5/aHR=
+0cHM6Ly93d3cuM2Rmb3JkZXNpZ25lcnMuY29tLw=3D=3D
+)=E2=80=8B
+It was actually really awesome. Devon is a hilarious =E2=80=93 and
+effective =E2=80=93 teacher. Within 2.5 hours, I had already made this
+(and, to be clear, I was going slow and tinkering):
+
+=E2=80=8B
+Mr. Flappy Flag may not look like much, but slap him in the
+middle of a portfolio site...
+
+=E2=80=8B
+And that=E2=80=99s a huge improvement! Like, sheets-in-the-breeze may not
+be your exact cup of tea, but ask any design recruiter which
+portfolio is more promising/interesting/intriguing, and you're
+gonna get one answer.
+
+Now this ain't the only thing to making a good portfolio =E2=80=93 not by
+a longshot. But if you're trying to get things started on the
+right foot, look beyond Figma for out-of-the-box visuals =E2=80=93
+whether that's 3D, top-notch Photoshopping, beautiful animations,
+or mesmerizing WebGL, etc. =F0=9F=91=8D
+
+Cheers,Erik D. Kennedy
+
+PS. This is perhaps the most important and serious postscript
+I=E2=80=99ve ever written, but the teacher of 3D for Designers, Devon Ko,
+has been on kidney dialysis for over 2 and a half years. Unless
+Devon can find a kidney donor in the near future, she will die.
+
+=E2=80=A6which would be a shame, because she=E2=80=99s awesome =F0=9F=99=82
+
+If you have type O blood, live in the US, and are between 18 and
+65, you can apply to donate (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/kkhmh6h860p33ebl/aHR=
+0cHM6Ly9raWRuZXlmb3JkZXZvbi5jb20v
+) a kidney to Devon.
+
+Donating a kidney doesn=E2=80=99t lower your own life expectancy. It=E2=80=
+=99s
+also free (which, uh, says something about our medical system
+that I even have to mention that).
+
+And I=E2=80=99m not trying to downplay it here =E2=80=93 it=E2=80=99s still=
+ a huge deal
+to part with one of your perfectly good organs. But the docs do
+some extensive screening to make sure the donor is going to be
+totally healthy with one kidney.
+
+You can read Devon's full story here (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/kkhmh6h860p33ebl/aHR=
+0cHM6Ly9raWRuZXlmb3JkZXZvbi5jb20v
+). Actually fun fact: the favicon for the site is a smiling,
+waving cartoon kidney, which gives you a sense of Devon's way of
+doing things =E2=80=93 up to and including facing her own mortality.
+
+(May we all have the strength of mind to face death in the eye
+and make cutesy favicons =F0=9F=92=AA)
+
+Last thing: if you're considering donating (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/qvh8h7h8om3006il/aHR=
+0cHM6Ly93d3cua2lkbmV5Zm9yZGV2b24uY29tLw=3D=3D
+), but don't know your blood type, I can get you an at-home test.
+Just hit Reply and let me know =F0=9F=91=8D
+
+The Design Newsletter is written by me, Erik Kennedy (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/g3hnh5he682kkecr/aHR=
+0cDovL2VyaWtka2VubmVkeS5jb20=3D
+). I generally send out only (a) in-depth, (b) original design
+writing that (c) I would've wanted to read as a beginning
+designer, and occasional news on Learn UI Design (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/n2hohvhn694kk6t6/aHR=
+0cDovL2xlYXJudWkuZGVzaWdu
+) & Learn UX Design (
+https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/48hvheh06d3nngcx/aHR=
+0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2lnbi5odG1s
+). You can change your name/email here (
+https://preferences.convertkit-mail.com/mvuk39g92xf5hl32l5fm ).
+If you are no longer interested in receiving design tutorials and
+news =E2=86=92 Unsubscribe (
+https://unsubscribe.convertkit-mail.com/mvuk39g92xf5hl32l5fm ).
+Drop me a line if you're ever in my neck of the woods =E2=86=92 PO Box
+386, Maple Valley, WA 98038. Cheers!
+--b3ee28528fa12358e26f1ace219765d2837b7c5da7eab3c69877dca52d40
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+
+
+<!--[if mso]>
+  <center>
+  <table><tr><td width=3D"580">
+<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" st=
+yle=3D"font-family:Georgia, Times, serif"><style>a:hover{color:#1b8ede}
+.button:hover{color:#fff;background:#666}</style><div class=3D"message-cont=
+ent" style=3D"font-size:17px;line-height:24px;color:#333333;margin-bottom:1=
+em;max-width:600px;font-family:Georgia, Times, serif">
+
+  <div style=3D"font-size:17px;line-height:24px;color:#333333;font-family:G=
+eorgia, Times, serif;margin-bottom:1em;padding-bottom:10px">
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Hey Lila,</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">I just got back from a 5-week roadtrip =
+around the country with my family (including a row full of kids in the back=
+ seat =F0=9F=99=88). We mostly visited family and friends, but I also <stro=
+ng style=3D"font-family:Georgia, Times, serif">hosted a few meetups around =
+the nation</strong> =E2=80=93 and it was <em style=3D"font-family:Georgia, =
+Times, serif">wonderful</em> getting to talk with many of you about design =
+and the industry.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:800px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:800px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/xrsXMjSCZ9sw18Zj43N3dM/email" wi=
+dth=3D"800" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:800px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:block">Also gave a guest lecture at my al=
+ma mater, Olin College =F0=9F=99=8C</figcaption></figure></td></tr></tbody>=
+</table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">One topic that came up again and again =
+was: <strong style=3D"font-family:Georgia, Times, serif">making a good port=
+folio</strong>.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">I=E2=80=99ve already written <a href=3D=
+"https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/08hwh9hmg64kwvtl/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbi9ibG9nL2hvdy1jcmVhdGUtdXgtdWktcG9ydGZvbGlvLXdpd=
+GhvdXQtbXVjaC1leHBlcmllbmNlLmh0bWw=3D" target=3D"_blank" rel=3D"noopener no=
+referrer" style=3D"font-family:Georgia, Times, serif;color:#0875c1" url-id=
+=3D"1423626158">4,000 words on this</a>, but today, I want to emphasize a d=
+ifferent lesson on creating a portfolio in 2021:</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em"><em style=3D"font-family:Georgia, Times=
+, serif"><strong style=3D"font-family:Georgia, Times, serif">There are now =
+SO MANY bootcamps churning out designers that one of your MAIN PORTFOLIO GO=
+ALS is to AVOID looking like a typical bootcamp grad.</strong></em></p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">You know what I'm talking about. I=E2=
+=80=99m sure you=E2=80=99ve seen =E2=80=9Cthe look=E2=80=9D:</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:500px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:500px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/mdtU2nKRygofVzNav9jznw/email?aut=
+o=3D" width=3D"500" style=3D"font-family:Georgia, Times, serif;max-width:10=
+0%;height:auto;width:500px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">This above-the-fold section is just <st=
+rong style=3D"font-family:Georgia, Times, serif">tremendously </strong><em =
+style=3D"font-family:Georgia, Times, serif"><strong style=3D"font-family:Ge=
+orgia, Times, serif">average</strong></em>:</p>
+<ul style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Geor=
+gia, Times, serif;margin-bottom:1em;list-style-position:inside">
+<li style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Geor=
+gia, Times, serif;margin-bottom:0.5em"><span style=3D"font-family:Georgia, =
+Times, serif">Overused font (Open Sans)</span></li>
+<li style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Geor=
+gia, Times, serif;margin-bottom:0.5em"><span style=3D"font-family:Georgia, =
+Times, serif">Overused color for this type of design (blue)</span></li>
+<li style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Geor=
+gia, Times, serif;margin-bottom:0.5em"><span style=3D"font-family:Georgia, =
+Times, serif">Big intro sentence with salutation, name, position =E2=80=93 =
+just like <em style=3D"font-family:Georgia, Times, serif">so many other por=
+tfolios</em></span></li>
+<li style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Geor=
+gia, Times, serif;margin-bottom:0.5em"><span style=3D"font-family:Georgia, =
+Times, serif">No attention to detail (selected =E2=80=9CWork=E2=80=9D is <a=
+ href=3D"https://click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/l2hehmho6mp=
+zv9b6/aHR0cHM6Ly90d2l0dGVyLmNvbS9lcmlrZGtlbm5lZHkvc3RhdHVzLzEzMjg3NzE1OTc3O=
+Dg3OTg5Nzc=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"font-=
+family:Georgia, Times, serif;color:#0875c1" url-id=3D"1423626161">lighter</=
+a> the non-selected items; social icons are <a href=3D"https://click.conver=
+tkit-mail.com/mvuk39g92xf5hl32l5fm/z2hghnhop2z8rgcp/aHR0cHM6Ly9pYW5zdG9ybXR=
+heWxvci5jb20vZGVzaWduLXRpcC1uZXZlci11c2UtYmxhY2sv" target=3D"_blank" rel=3D=
+"noopener noreferrer" style=3D"font-family:Georgia, Times, serif;color:#087=
+5c1" url-id=3D"1423626167">pitch black</a>)</span></li>
+</ul>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">So how do you think outside the box?</p=
+>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em"><strong style=3D"font-family:Georgia, T=
+imes, serif">My best advice:</strong> <em style=3D"font-family:Georgia, Tim=
+es, serif"><strong style=3D"font-family:Georgia, Times, serif">make somethi=
+ng hard to re-create in Figma</strong></em>.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">In my opinion, if you <em style=3D"font=
+-family:Georgia, Times, serif">really</em> want your portfolio to stand out=
+ from the others, you should include some visuals that require an app <em s=
+tyle=3D"font-family:Georgia, Times, serif">besides Figma/Sketch</em> to cre=
+ate: e.g. <strong style=3D"font-family:Georgia, Times, serif">Photoshop, 3D=
+, pixel art, animation, WebGL, etc</strong>.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">To test this, I signed up for Devon Ko=
+=E2=80=99s highly respected =E2=80=9C<a href=3D"https://click.convertkit-ma=
+il.com/mvuk39g92xf5hl32l5fm/x0hph6hn9vmllrt5/aHR0cHM6Ly93d3cuM2Rmb3JkZXNpZ2=
+5lcnMuY29tLw=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"=
+font-family:Georgia, Times, serif;color:#0875c1" url-id=3D"1423626169">3D f=
+or Designers</a>=E2=80=9D course.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:500px"><a style=3D"font-family:Georgia, Tim=
+es, serif;color:#0875c1;display:block;max-width:500px" href=3D"https://clic=
+k.convertkit-mail.com/mvuk39g92xf5hl32l5fm/x0hph6hn9vmllrt5/aHR0cHM6Ly93d3c=
+uM2Rmb3JkZXNpZ25lcnMuY29tLw=3D=3D" target=3D"_blank" rel=3D"noopener norefe=
+rrer" url-id=3D"1423626169"><img src=3D"https://embed.filekitcdn.com/e/gJxG=
+cuzsv4KXrV4Q8BDmRk/hhK1BRtb1BwwxEqecpsWNj/email" width=3D"500" style=3D"fon=
+t-family:Georgia, Times, serif;max-width:100%;height:auto;width:500px;max-w=
+idth:100%;border-radius:4px"></a><figcaption style=3D"font-family:Georgia, =
+Times, serif;font-size:15px;opacity:0.75;text-align:center;display:none">=
+=E2=80=8B</figcaption></figure></td></tr></tbody></table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">It was actually <em style=3D"font-famil=
+y:Georgia, Times, serif">really awesome</em>. Devon is a hilarious =E2=80=
+=93=C2=A0and effective =E2=80=93 teacher. Within 2.5 hours, I had already m=
+ade <em style=3D"font-family:Georgia, Times, serif">this</em> (and, to be c=
+lear, I was going slow and tinkering):</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:500px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:500px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/4q4GJ522KMqYPMuJj8Tjm4/email" wi=
+dth=3D"500" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:500px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Mr. Flappy Flag may not <em style=3D"fo=
+nt-family:Georgia, Times, serif">look</em> like much, but slap him in the m=
+iddle of a portfolio site...</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:500px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:500px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/38xK5BBTBq2fu2WBP1pgpu/email" wi=
+dth=3D"500" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:500px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">And that=E2=80=99s a <strong style=3D"f=
+ont-family:Georgia, Times, serif">huge improvement</strong>! Like, sheets-i=
+n-the-breeze may not be your exact cup of tea, but <strong style=3D"font-fa=
+mily:Georgia, Times, serif">ask any design recruiter</strong> <em style=3D"=
+font-family:Georgia, Times, serif">which portfolio is more promising/intere=
+sting/intriguing</em>, and you're gonna get one answer.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Now this ain't the only thing to making=
+ a good portfolio =E2=80=93=C2=A0not by a longshot. But if you're trying to=
+ get things started on the right foot, <strong style=3D"font-family:Georgia=
+, Times, serif"><em style=3D"font-family:Georgia, Times, serif">look beyond=
+ Figma</em></strong> for out-of-the-box visuals =E2=80=93 whether that's 3D=
+, top-notch Photoshopping, beautiful animations, or mesmerizing WebGL, etc.=
+ =F0=9F=91=8D</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Cheers,<br style=3D"font-family:Georgia=
+, Times, serif">Erik D. Kennedy</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">PS. This is perhaps the most important =
+and serious postscript I=E2=80=99ve ever written, but the teacher of 3D for=
+ Designers, Devon Ko, has been <strong style=3D"font-family:Georgia, Times,=
+ serif">on kidney dialysis for over 2 and a half years</strong>. Unless Dev=
+on can find a kidney donor in the  near future, she will die.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">=E2=80=A6which would be a shame, becaus=
+e she=E2=80=99s awesome =F0=9F=99=82</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">If you have type O blood, live in the U=
+S, and are between 18 and 65, you can <a href=3D"https://click.convertkit-m=
+ail.com/mvuk39g92xf5hl32l5fm/kkhmh6h860p33ebl/aHR0cHM6Ly9raWRuZXlmb3JkZXZvb=
+i5jb20v" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"font-family=
+:Georgia, Times, serif;color:#0875c1" url-id=3D"1423626171">apply to donate=
+</a> a kidney to Devon.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Donating a kidney doesn=E2=80=99t lower=
+ your own life expectancy. It=E2=80=99s also <em style=3D"font-family:Georg=
+ia, Times, serif">free</em> (which, uh, says something about our medical sy=
+stem that I even have to mention that).</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">And I=E2=80=99m not trying to downplay =
+it here =E2=80=93 it=E2=80=99s still a huge deal to part with one of your p=
+erfectly good organs. But the docs do some extensive screening to make sure=
+ the donor is going to be totally healthy with one kidney.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">You can read <a href=3D"https://click.c=
+onvertkit-mail.com/mvuk39g92xf5hl32l5fm/kkhmh6h860p33ebl/aHR0cHM6Ly9raWRuZX=
+lmb3JkZXZvbi5jb20v" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"=
+font-family:Georgia, Times, serif;color:#0875c1" url-id=3D"1423626171">Devo=
+n's full story here</a>. <em style=3D"font-family:Georgia, Times, serif">Ac=
+tually</em> fun fact: the favicon for the site is a <strong style=3D"font-f=
+amily:Georgia, Times, serif">smiling, waving cartoon kidney</strong>, which=
+ gives you a sense of Devon's way of doing things =E2=80=93 up to and inclu=
+ding facing her own mortality.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">(May we all have the strength of mind t=
+o face death in the eye and make cutesy favicons =F0=9F=92=AA)</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Last thing: if you're <a href=3D"https:=
+//click.convertkit-mail.com/mvuk39g92xf5hl32l5fm/qvh8h7h8om3006il/aHR0cHM6L=
+y93d3cua2lkbmV5Zm9yZGV2b24uY29tLw=3D=3D" target=3D"_blank" rel=3D"noopener =
+noreferrer" style=3D"font-family:Georgia, Times, serif;color:#0875c1" url-i=
+d=3D"1423626174">considering donating</a>, but don't know your blood type, =
+I can get you an at-home test. Just hit Reply and let me know =F0=9F=91=8D<=
+/p>
+</div>
+
+  <div class=3D"footer" style=3D"font-size:17px;line-height:24px;color:#333=
+333;font-family:Georgia, Times, serif;margin-bottom:1em;border-top:1px dott=
+ed #666;padding:20px 0px;font-family:Helvetica, Arial, sans-serif;color:#aa=
+a;font-size:11px;line-height:1.25;padding-bottom:10px">The Design Newslette=
+r is written by me, <a href=3D"https://click.convertkit-mail.com/mvuk39g92x=
+f5hl32l5fm/g3hnh5he682kkecr/aHR0cDovL2VyaWtka2VubmVkeS5jb20=3D" style=3D"fo=
+nt-family:Georgia, Times, serif;color:#0875c1;font-family:Helvetica, Arial,=
+ sans-serif" url-id=3D"1423626175">Erik Kennedy</a>. I generally send out o=
+nly (a) in-depth, (b) original design writing that (c) I would've wanted to=
+ read as a beginning designer, and occasional news on <a href=3D"https://cl=
+ick.convertkit-mail.com/mvuk39g92xf5hl32l5fm/n2hohvhn694kk6t6/aHR0cDovL2xlY=
+XJudWkuZGVzaWdu" style=3D"font-family:Georgia, Times, serif;color:#0875c1;f=
+ont-family:Helvetica, Arial, sans-serif" url-id=3D"1423626178">Learn UI Des=
+ign</a> &amp; <a href=3D"https://click.convertkit-mail.com/mvuk39g92xf5hl32=
+l5fm/48hvheh06d3nngcx/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4L=
+WRlc2lnbi5odG1s" style=3D"font-family:Georgia, Times, serif;color:#0875c1;f=
+ont-family:Helvetica, Arial, sans-serif" url-id=3D"1423626179">Learn UX Des=
+ign</a>. You can <a href=3D"https://preferences.convertkit-mail.com/mvuk39g=
+92xf5hl32l5fm" style=3D"font-family:Georgia, Times, serif;color:#0875c1;fon=
+t-family:Helvetica, Arial, sans-serif">change your name/email here</a>. If =
+you are no longer interested in receiving design tutorials and news =E2=86=
+=92 <a href=3D"https://unsubscribe.convertkit-mail.com/mvuk39g92xf5hl32l5fm=
+" style=3D"font-family:Georgia, Times, serif;color:#0875c1;font-family:Helv=
+etica, Arial, sans-serif">Unsubscribe</a>. Drop me a line if you're ever in=
+ my neck of the woods =E2=86=92 PO Box 386, Maple Valley, WA 98038. Cheers!
+  </div>
+</div>
+<!--[if mso]>
+  </td></tr></table>
+  </center>
+<![endif]-->
+<!-- -->
+<img src=3D"https://open.convertkit-mail.com/mvuk39g92xf5hl32l5fm" alt=3D""=
+ style=3D"font-family:Georgia, Times, serif">
+
+--b3ee28528fa12358e26f1ace219765d2837b7c5da7eab3c69877dca52d40--

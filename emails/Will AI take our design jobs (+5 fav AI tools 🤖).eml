@@ -1,0 +1,869 @@
+Delivered-To: lilapapazian@gmail.com
+Received: by 2002:ac8:4b78:0:0:0:0:0 with SMTP id g24csp2670313qts;
+        Mon, 19 Dec 2022 13:28:58 -0800 (PST)
+X-Google-Smtp-Source: AMrXdXurC7MtB6Mr/tCP//QxRsLdHzW3d7HF2LI1LgrEwy0HFvpHHpaPXqLVIxIl8hZNzSyKM9Tc
+X-Received: by 2002:a05:6a00:f8d:b0:577:501c:c154 with SMTP id ct13-20020a056a000f8d00b00577501cc154mr10723081pfb.6.1671485338033;
+        Mon, 19 Dec 2022 13:28:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1671485338; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0mMfDH2njR3zd4VfvDi1mLZHzm7E0VaMu4pOTb1dM6BV9o4ghgTGcyAXKa2DN4pdmt
+         R3ZIJWirdPNrDnnLzcl8tG0Pn4iUjiAWgTDbXROZTuwVPjSdUUiGFyn7uwLBjvmpM4r4
+         e1St9qpGLlhaqdR6cqQAkUbVwM5y3PcbdZfI9JlYGpBFgMkRMDmXlWyX69UTUGL1Yq02
+         e+WdS1R4gEwNZJUsjeJ54KYivq/IruKlZ1XdCMmyhK3K12OPlGM54ngwAsza3ifo0MzD
+         vTHp1ie67f71wBy0qOQ7W73tjqRR3nfCtdawzJX6ETNGLO6nw0XVVvSraeug66uPsNVh
+         /iZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:list-unsubscribe:feedback-id:precedence:subject:message-id
+         :mime-version:from:date:dkim-signature:dkim-signature;
+        bh=/Kjvv/+RCU6+1uoeNM1lvay7HxSaMuWs4djH4HXHlV4=;
+        b=PBgYpgUFujb7MWUQVMXM9iG6L95LwsmypgG1ZlXC00GcDXPjjOQovDMWNP1DR0utdM
+         jpb0qGyLSUY9kim6IOd7SW/VvZT32rXtPajo7XZYy8lrR5cwIoUtHL8+i5wJn3hsdIxI
+         AvCJFBuBmF9elpxYP26Ki77RMGJdLRY+Nd/GmXDYCcT6OemoDCIzh8QlkBCT5gU7yAt6
+         9i1CNUaLMR+9k9IU62TvHQUBcAbEmJsFv63E5ygp0TXIR5vcCenoOi2SZSMCoFpETtOI
+         SUNodtG14DiAsTcBvIIwPnHY0MxnkVx/b5VuByaR6Ag4dTtuTLmkEPidaYSBZ2/jgjYg
+         SqYw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=lgvHb3Ta;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rnHGR3Eo;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.30.57 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+Return-Path: <bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com>
+Received: from o16.ck.n.convertkit.com (o16.ck.n.convertkit.com. [167.89.30.57])
+        by mx.google.com with ESMTPS id j17-20020a056a00131100b0056de69b0c7esi11311039pfu.284.2022.12.19.13.28.57
+        for <lilapapazian@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Dec 2022 13:28:58 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.30.57 as permitted sender) client-ip=167.89.30.57;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=lgvHb3Ta;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rnHGR3Eo;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.30.57 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=n.convertkit.com;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=s1; bh=/Kjvv/+RCU6+1uoeNM1lvay7HxSaMuWs4djH4HXHlV4=;
+	b=lgvHb3TaykCaZ7Zt4m5RYfrd0ofeLbc9zsfUUJ0dP7p6sdZEDJxMbPQXxXIML9igJpwt
+	BXR4Whsn1yF4/tpi0Vp7cU2mjMahbjMcV3D93sRB3lM3EKEtzEspjKZ2mEiLkQygTsJq1M
+	HfuFTGAdomMfl1+x9TK02DpIFkthZShHtnlQTOuDp2s31dUdMXgWVNMgH2ZO5h+8rZapP3
+	d7Uq/SKLjfETSj9wbm1IOBQHwoN9knVjafwe381vW5zoLguEFq6Svz9NdEH7apedp3/3Xo
+	6gyV9EfuoTqKa5tiPrOeAXLgbisq6wfKa+eK8pExiqNa5bnOQ99Wrjo5iGXYc8Ag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=/Kjvv/+RCU6+1uoeNM1lvay7HxSaMuWs4djH4HXHlV4=;
+	b=rnHGR3Eo3avQZG/kBCknCj3o4sFhrQJTjcqydHOoNpuJUBBIZGpRtJ1Q2/cuTLEZrT7X
+	Vr0W9/EX6lFhM0opU8zTm3y4aoi8KiFJrwllUrfFxDoR1DiMarv6abg89Q9d/C9Y5sdK7h
+	rVJ7NAIDXb+mTFzYmUL45OizSm/E58wVI=
+Received: by filterdrecv-6464997b5b-8rltk with SMTP id filterdrecv-6464997b5b-8rltk-1-63A0D798-1D
+        2022-12-19 21:28:56.529181981 +0000 UTC m=+2758997.721014164
+Received: from ODc0OTYxMA (unknown)
+	by geopod-ismtpd-6-1 (SG) with HTTP
+	id gxMX_E8kQ3eLPd54k4OMDg
+	Mon, 19 Dec 2022 21:28:56.347 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=6895dabff3e1d24e523b9a5fd33618a0c1f88a6423f52c23658d1a9f0c81
+Date: Mon, 19 Dec 2022 21:28:56 +0000 (UTC)
+From: "Erik D. Kennedy" <erik@learnui.design>
+Mime-Version: 1.0
+Message-ID: <0vu87mem46s9hokxgv9cl@convertkit-mail.com>
+Subject: Will AI take our design jobs? (+5 fav AI tools =?UTF-8?B?8J+klik=?=
+X-Report-Abuse: <abuse@convertkit.com>
+Precedence: bulk
+Feedback-ID: 9669074:39008:broadcast:CK
+List-Unsubscribe: 
+ <https://unsubscribe.convertkit-mail.com/0vu87mem46s9hokxgv9cl>
+X-Report-Spam: <abuse@convertkit.com>
+X-Feedback-ID: 8749610:SG
+X-SG-EID: 
+ =?us-ascii?Q?EDG+KXEj7hMIzJV17jd5qsGcPZPEO4TsG4phGcpDP3WLU7hbEUvMpOEUmBbgkZ?=
+ =?us-ascii?Q?Hm2NaOmOBejwPTE2rTyqmytUJsEKwJiLxBVHfps?=
+ =?us-ascii?Q?gZ46kMe86ksUQnhPjZ7EmJcD005iRC3GYk5Za6v?=
+ =?us-ascii?Q?v3S3NdJG+3aFFNEIdzG=2FJ64De6DJ2V7E9xPR+44?=
+ =?us-ascii?Q?ctNsxu2QJPhoP1M=2F1lCJJNpd0lzXQVeIWDQIut6?=
+ =?us-ascii?Q?Wv3px3K7YtoAxoGZVGOxzEiq2LAqC9032nQoxH?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJHjDFAea1uZocvZojyqe?=
+ =?us-ascii?Q?ADZn5nHdtFLC0HUWkJua4H84x6IYhu2Whwv8K2Y?=
+ =?us-ascii?Q?MM7l4v7J3baJVDFg7KYXt86az6VnpopcqcJ1+Be?=
+ =?us-ascii?Q?+3Jq6OBnzEPZSfACzo7mkMd19hF8B=2FOJPNNgGPt?=
+ =?us-ascii?Q?QHLmxUcRQ4CxX3B8YupsBkiahBGSAoiCVX+ol9x?=
+ =?us-ascii?Q?mO1SoMQzlCmCcE1xQaZ=2FQwMOmttUOPHHmz7ak4i?=
+ =?us-ascii?Q?5hHPt8335wIRcnPKfANVKDE6xiyqCZB3MtauYHv?=
+ =?us-ascii?Q?zOjPrZzDLESyUXrEDUJMTwuqC5LYA6PjVXYnP3L?=
+ =?us-ascii?Q?7BWqO3+V4oiX=2F63f3Q+39IhEiOFI7XhHq3F37mS?=
+ =?us-ascii?Q?aoPDKvmYyI?=
+To: Lila <lilapapazian@gmail.com>
+X-Entity-ID: JG8Lqh/QTEp30TAc2PSDRA==
+
+--6895dabff3e1d24e523b9a5fd33618a0c1f88a6423f52c23658d1a9f0c81
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hey Lila,
+
+If you aren't amazed/freaked out by the parade of new AI tools
+that've been released in the last couple weeks/months, you're not
+paying attention =F0=9F=98=AC
+
+Go to Midjourney (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/6qheh8hp3o5ngnso/aH=
+R0cHM6Ly9taWRqb3VybmV5LmNvbS8=3D
+), type in: =E2=80=9Ca control panel of glowing switches, dials, lights,
+and charts, hyper detailed render --v 4=E2=80=9D, and in seconds, you
+get:
+
+=E2=80=8B
+Simply put, if this doesn't revolutionize design, I don't know
+what will.
+
+[PSA: if you have end-of-year education budget to spend on
+yourself or your team, you can now enroll 5+ seats of Learn UI/UX
+Design for 30% off (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/kkhmh6h8om56qmul/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbi9mb3ItZW1wbG95ZXJzLmh0bWw=3D
+), self-service =F0=9F=91=A8=E2=80=8D=F0=9F=8E=93. Individual enrollment wi=
+ll open next month
+=F0=9F=98=8E]
+
+Curious, I decided to design a screen using as many AI-powered
+tools as possible. I wanted to see:
+
+* What are the most useful AI tools for designers?
+* What needs improvement?
+* What parts of our job will AI soon assist with (or even take
+over)?
+
+Here's the end result (that we'll look at tool-by-tool):
+
+=E2=80=8B
+
+****************
+AI Portraits (=F0=9F=A4=A9)
+****************
+
+The portrait image is from Lexica Aperture (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/58hvh7h547nk8li6/aH=
+R0cHM6Ly9sZXhpY2EuYXJ0L2FwZXJ0dXJl
+). I typed in "portrait of a master woodworker in his shop", and
+used one of first 4 images it came up with.
+
+(
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/58hvh7h547nk8li6/aH=
+R0cHM6Ly9sZXhpY2EuYXJ0L2FwZXJ0dXJl
+)=E2=80=8B
+That was insanely easy, and the image looks awesome. A lot of
+stock-quality portraits could easily get replaced today.
+
+*************************
+AI headlines and CTAs (=F0=9F=98=B2)
+*************************
+
+For generating headlines, I used ChatGPT (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/25h2hoh7qd84zlb3/aH=
+R0cHM6Ly9jaGF0Lm9wZW5haS5jb20v
+), and treated it more like a brainstorming partner, where I
+could mix-and-match from the TONS of ideas it generated almost
+instantly.
+
+(
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/25h2hoh7qd84zlb3/aH=
+R0cHM6Ly9jaGF0Lm9wZW5haS5jb20v
+)=E2=80=8B
+=E2=80=8B
+
+(
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/25h2hoh7qd84zlb3/aH=
+R0cHM6Ly9jaGF0Lm9wZW5haS5jb20v
+)=E2=80=8B
+There's a lot that goes into good sales copy, so I suspect "AI as
+brainstorming partner/initial suggester" is the near/medium-term
+future of this.
+
+***************************************
+AI for textures/icons/visual assets (=F0=9F=A4=94)
+***************************************
+
+This was a mixed bag. I couldn't get any good icons or logos from
+DALL-E (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/qvh8h7h8ln4o5ztl/aH=
+R0cHM6Ly9sYWJzLm9wZW5haS5jb20v
+).
+
+=E2=80=8B
+On the other hand, it aced my request for a =E2=80=9Crich, beautiful wood
+grain=E2=80=9D texture:
+
+That right image =E2=80=93 so good!
+Icons seems fairly straightforward to AI-ify, so hopefully we'll
+see a good solution soon =F0=9F=99=82
+
+***************
+AI logos (=F0=9F=A4=B7=E2=80=8D=E2=99=82=EF=B8=8F)
+***************
+
+The logo I used is based on a concept from logoai.com (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/g3hnh5he0pl659sr/bG=
+9nb2FpLmNvbQ=3D=3D
+). Even with the AI assist, it took a bunch of manual tweaking.
+
+=E2=80=8B
+The above logos technically read as logos, but that's the most
+I'll give 'em =E2=80=93 honestly, they all suck.
+
+Better AI logos are (no doubt) coming soon, but I suspect humans
+will still be necessary for the fine details/tweaking/execution.
+
+*******************
+AI font-picking (=F0=9F=99=88)
+*******************
+
+Last week, I asked ChatGPT for 10 serif font recommendations, and
+it gave me:
+
+* Two serif fonts
+* Eight sans-serif fonts
+
+"Screw it", I thought, "It didn't even get as close as
+Baskerville. Well, I'll pick a font myself. Merriweather (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/9qhzhnhge96zmrb9/aH=
+R0cHM6Ly9mb250cy5nb29nbGUuY29tL3NwZWNpbWVuL01lcnJpd2VhdGhlcg=3D=3D
+) feels like an obvious great choice here".
+
+Well, I asked ChatGPT again this morning, aaaaand=E2=80=A6
+
+=E2=80=8B
+I'm not at all comfortable with the gains it's made over the
+weekend =F0=9F=98=82
+
+********************************
+AI for image background-removing
+********************************
+
+OK, I didn't use this for the woodworker example, but Background
+Remover (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/3ohphkhqkz24llar/aH=
+R0cHM6Ly9pY29uczguY29tL2JncmVtb3Zlcg=3D=3D
+) (Figma plugin here (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/n2hohvhnlrx6p9u6/aH=
+R0cHM6Ly93d3cuZmlnbWEuY29tL2NvbW11bml0eS9wbHVnaW4vOTk3NjQzMDk2Njc5NTExMjE2
+)), Remove Background (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/48hvheh07gp6e4ux/aH=
+R0cHM6Ly93d3cucmVtb3ZlLmJnLw=3D=3D
+), etc. are amazing at their job. The days of cracking open
+Photoshop to remove a background are all but gone.
+
+=E2=80=8B
+
+*******************
+The "final" verdict
+*******************
+
+This field is moving unbelievably fast. It's unreal.
+
+Lexica Aperture, released last week.
+
+ChatGPT, 3 weeks ago.
+
+DALL-E, opened to the public 3 months ago.
+
+So any "final" verdict is subject to some pretty serious caveats,
+BUT... I think I'm starting to catch glimpses of the future of
+design.
+
+* AI tools will be the best thing to ever happen to
+ideation/brainstorming/inspiration
+* Any visual asset that is remotely "stock" feeling will be far
+easier to generate with AI
+* Having good taste is about to become a lot more valuable (sales
+pitch: stick around on this newsletter, I'll be breaking down why
+good design works =F0=9F=98=8E)
+* Anything that requires serious theory of mind =E2=80=93 putting
+yourself into another human's shoes and thinking from their point
+of view =E2=80=93 will be very tough for AI to do. This includes
+everything from UX research to interaction design to writing
+great sales copy.
+
+Anyhow, I highly recommend opening up ChatGPT (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/wnh2hghrlgkxp0c7/aH=
+R0cHM6Ly9jaGF0Lm9wZW5haS5jb20vY2hhdA=3D=3D
+), DALL-E (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/qvh8h7h8ln4o5ztl/aH=
+R0cHM6Ly9sYWJzLm9wZW5haS5jb20v
+), Lexica Aperture (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/58hvh7h547nk8li6/aH=
+R0cHM6Ly9sZXhpY2EuYXJ0L2FwZXJ0dXJl
+), Midjourney (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/6qheh8hp3o5ngnso/aH=
+R0cHM6Ly9taWRqb3VybmV5LmNvbS8=3D
+), and Background Remover (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/3ohphkhqkz24llar/aH=
+R0cHM6Ly9pY29uczguY29tL2JncmVtb3Zlcg=3D=3D
+) and playing around a bit. It's Christmas week (have a merry
+one! =F0=9F=8E=84), and if I remember the corporate world correctly, no rea=
+l
+work is getting done anyways =F0=9F=98=89
+
+Cheers,Erik D. Kennedy
+
+PS. I've recently added self-service signups (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/reh8hohqox3wroi2/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbiNlbnJvbGwtbm93
+) for businesses looking to enroll multiple seats in Learn UI
+Design / Learn UX Design. If you have education budget to burn,
+check it out. Individual enrollment will open in January after I
+finish a few more course changes =F0=9F=98=8E
+
+Hi Lila! =F0=9F=91=8B You got this email because you signed up for Design
+Hacks. I send out original UI/UX design tutorials and occasional
+news on my two design courses: Learn UI Design (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/08hwh9hmpz9g54fl/aH=
+R0cDovL2xlYXJudWkuZGVzaWdu
+) & Learn UX Design (
+https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/8ghqhohg792qv4sk/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2lnbi5odG1s
+). You can edit your name/email (
+https://preferences.convertkit-mail.com/0vu87mem46s9hokxgv9cl )
+or stop getting emails (
+https://unsubscribe.convertkit-mail.com/0vu87mem46s9hokxgv9cl )
+if you want (don=E2=80=99t click those if you were forwarded this email
+=F0=9F=99=82). Drop me a line if you're ever in my neck of the woods =E2=86=
+=92 PO
+Box 386, Maple Valley, WA 98038. Cheers!
+--6895dabff3e1d24e523b9a5fd33618a0c1f88a6423f52c23658d1a9f0c81
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html style=3D'font-family:"Georgia", serif;color:#232323'>
+<head style=3D'font-family:"Georgia", serif;color:#232323'>
+
+<!--[if mso]>
+  <center>
+  <table><tr><td width=3D"580">
+<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" st=
+yle=3D'font-family:"Georgia", serif;color:#232323'>
+</head>
+<body style=3D'font-family:"Georgia", serif;color:#232323'>
+<div class=3D"message-content" style=3D'font-family:"Georgia", serif;color:=
+#232323;font-size:17px;line-height:23px;margin:0 auto;max-width:600px'>
+
+  <div class=3D"dh-header" style=3D'font-family:"Georgia", serif;color:#232=
+323;font-size:17px;line-height:23px;margin-bottom:30px;border-radius:2px;ba=
+ckground-color:#232323'>
+    <img src=3D"https://learnui.design/extras/img/dh-email-header-hd.png" c=
+lass=3D"dh-header__img" alt=3D"Design Hacks Newsletter" style=3D'font-famil=
+y:"Georgia", serif;color:#232323;display:block;margin:0 auto;width:174px;pa=
+dding:10px 0;max-width:100%;height:auto;border-radius:0;width: 174px;'>
+  </div>
+
+  <div class=3D"spaced-contents" style=3D'font-family:"Georgia", serif;colo=
+r:#232323;font-size:17px;line-height:23px'>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Hey Lila,</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>If you aren't amazed/freaked o=
+ut by the parade of new AI tools that've been released in the last couple w=
+eeks/months, <em style=3D'font-family:"Georgia", serif;color:#232323;font-s=
+ize:17px;line-height:23px;font-style:italic'>you're not paying attention</e=
+m> =F0=9F=98=AC</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Go to <a href=3D"https://click=
+.convertkit-mail.com/0vu87mem46s9hokxgv9cl/6qheh8hp3o5ngnso/aHR0cHM6Ly9taWR=
+qb3VybmV5LmNvbS8=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D=
+'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px=
+;color:#00819d' url-id=3D"1508619298">Midjourney</a>, type in: <strong styl=
+e=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:=
+23px;font-weight:bold'>=E2=80=9Ca control panel of glowing switches, dials,=
+ lights, and charts, hyper detailed render --v 4=E2=80=9D</strong>, and in =
+seconds, you get:</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/t=
+3ekSnumR27xwgskg9eGP2/email" width=3D"800" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;=
+max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Simply put, if this doesn't re=
+volutionize design, <em style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;font-style:italic'>I don't know what will<=
+/em>.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>[PSA: if you have <strong styl=
+e=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:=
+23px;font-weight:bold'>end-of-year education budget</strong> to spend on yo=
+urself or your team, you can now enroll <a href=3D"https://click.convertkit=
+-mail.com/0vu87mem46s9hokxgv9cl/kkhmh6h8om56qmul/aHR0cHM6Ly9sZWFybnVpLmRlc2=
+lnbi9mb3ItZW1wbG95ZXJzLmh0bWw=3D" target=3D"_blank" rel=3D"noopener norefer=
+rer" style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;lin=
+e-height:23px;color:#00819d' url-id=3D"1508619299">5+ seats of Learn UI/UX =
+Design for <strong style=3D'font-family:"Georgia", serif;color:#232323;font=
+-size:17px;line-height:23px;font-weight:bold;color:#00819d'>30% off</strong=
+></a>, self-service =F0=9F=91=A8=E2=80=8D=F0=9F=8E=93. Individual enrollmen=
+t will open next month =F0=9F=98=8E]</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Curious, I decided to design a=
+ screen using <strong style=3D'font-family:"Georgia", serif;color:#232323;f=
+ont-size:17px;line-height:23px;font-weight:bold'><em style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-style:it=
+alic'>as many AI-powered tools as possible</em></strong>. I wanted to see:<=
+/p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>What ar=
+e the most <em style=3D'font-family:"Georgia", serif;color:#232323;font-siz=
+e:17px;line-height:23px;font-style:italic'>useful</em> AI tools for designe=
+rs?</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>What ne=
+eds improvement?</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>What pa=
+rts of our job will AI soon assist with (or even take over)?</span></li>
+</ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Here's the end result (that we=
+'ll look at tool-by-tool):</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:360px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:360px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/e=
+PDsFGvBtkdXFi1WN7Bt6L/email?auto=3D" width=3D"360" style=3D'font-family:"Ge=
+orgia", serif;color:#232323;max-width:100%;height:auto;border-radius:0;widt=
+h:360px;max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>AI Portraits (=F0=9F=A4=A9=
+)</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>The portrait image is from <a =
+href=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/58hvh7h547n=
+k8li6/aHR0cHM6Ly9sZXhpY2EuYXJ0L2FwZXJ0dXJl" target=3D"_blank" rel=3D"noopen=
+er noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;font-siz=
+e:17px;line-height:23px;color:#00819d' url-id=3D"1508619300">Lexica Apertur=
+e</a>. I typed in "portrait of a master woodworker in his shop", and used o=
+ne of first 4 images it came up with.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:765px'><a style=3D'font-family:"Georgia", se=
+rif;color:#232323;font-size:17px;line-height:23px;color:#00819d;display:blo=
+ck;max-width:765px' href=3D"https://click.convertkit-mail.com/0vu87mem46s9h=
+okxgv9cl/58hvh7h547nk8li6/aHR0cHM6Ly9sZXhpY2EuYXJ0L2FwZXJ0dXJl" target=3D"_=
+blank" rel=3D"noopener noreferrer" url-id=3D"1508619300"><img src=3D"https:=
+//embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/eW79egRbrtFtYk3PyB3QNo/emai=
+l" width=3D"765" style=3D'font-family:"Georgia", serif;color:#232323;max-wi=
+dth:100%;height:auto;border-radius:0;width:765px;max-width:100%;border-radi=
+us:0px'></a><figcaption style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin:12px 0 24px;text-align:center;font-=
+style:italic;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcapt=
+ion></figure></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>That was insanely easy, and th=
+e image looks <em style=3D'font-family:"Georgia", serif;color:#232323;font-=
+size:17px;line-height:23px;font-style:italic'>awesome</em>. A lot of stock-=
+quality portraits could <em style=3D'font-family:"Georgia", serif;color:#23=
+2323;font-size:17px;line-height:23px;font-style:italic'>easily</em> get rep=
+laced today.</p>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>AI headlines and CTAs (=F0=
+=9F=98=B2)</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>For generating headlines, I us=
+ed <a href=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/25h2h=
+oh7qd84zlb3/aHR0cHM6Ly9jaGF0Lm9wZW5haS5jb20v" target=3D"_blank" rel=3D"noop=
+ener noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;font-s=
+ize:17px;line-height:23px;color:#00819d' url-id=3D"1508619301">ChatGPT</a>,=
+ and treated it more like a <em style=3D'font-family:"Georgia", serif;color=
+:#232323;font-size:17px;line-height:23px;font-style:italic'>brainstorming p=
+artner</em>, where I could mix-and-match from the TONS of ideas it generate=
+d almost instantly.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:710px'><a style=3D'font-family:"Georgia", se=
+rif;color:#232323;font-size:17px;line-height:23px;color:#00819d;display:blo=
+ck;max-width:710px' href=3D"https://click.convertkit-mail.com/0vu87mem46s9h=
+okxgv9cl/25h2hoh7qd84zlb3/aHR0cHM6Ly9jaGF0Lm9wZW5haS5jb20v" target=3D"_blan=
+k" rel=3D"noopener noreferrer" url-id=3D"1508619301"><img src=3D"https://em=
+bed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/vStHb8GHgJBrYzbrDSfiGr/email" w=
+idth=3D"710" style=3D'font-family:"Georgia", serif;color:#232323;max-width:=
+100%;height:auto;border-radius:0;width:710px;max-width:100%;border-radius:0=
+px'></a><figcaption style=3D'font-family:"Georgia", serif;color:#232323;fon=
+t-size:17px;line-height:23px;margin:12px 0 24px;text-align:center;font-styl=
+e:italic;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption>=
+</figure></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>=E2=80=8B</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:714px'><a style=3D'font-family:"Georgia", se=
+rif;color:#232323;font-size:17px;line-height:23px;color:#00819d;display:blo=
+ck;max-width:714px' href=3D"https://click.convertkit-mail.com/0vu87mem46s9h=
+okxgv9cl/25h2hoh7qd84zlb3/aHR0cHM6Ly9jaGF0Lm9wZW5haS5jb20v" target=3D"_blan=
+k" rel=3D"noopener noreferrer" url-id=3D"1508619301"><img src=3D"https://em=
+bed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/269Qe5tUux7U2NT5KNngpN/email" w=
+idth=3D"714" style=3D'font-family:"Georgia", serif;color:#232323;max-width:=
+100%;height:auto;border-radius:0;width:714px;max-width:100%;border-radius:0=
+px'></a><figcaption style=3D'font-family:"Georgia", serif;color:#232323;fon=
+t-size:17px;line-height:23px;margin:12px 0 24px;text-align:center;font-styl=
+e:italic;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption>=
+</figure></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>There's a lot that goes into g=
+ood sales copy, so I suspect "AI as brainstorming partner/initial suggester=
+" is the near/medium-term future of this.</p>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>AI for textures/icons/visu=
+al assets (=F0=9F=A4=94)</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>This was a mixed bag. I couldn=
+'t get <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;font-style:italic'>any</em> good icons or logos from <a=
+ href=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/qvh8h7h8ln=
+4o5ztl/aHR0cHM6Ly9sYWJzLm9wZW5haS5jb20v" target=3D"_blank" rel=3D"noopener =
+noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;color:#00819d' url-id=3D"1508619302">DALL-E</a>.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/v=
+tkQjQS67PwxbdZmKNj5nB?w=3D800&amp;fit=3Dmax" width=3D"800" style=3D'font-fa=
+mily:"Georgia", serif;color:#232323;max-width:100%;height:auto;border-radiu=
+s:0;width:800px;max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>On the other hand, it <em styl=
+e=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:=
+23px;font-style:italic'>aced</em> my request for a =E2=80=9Crich, beautiful=
+ wood grain=E2=80=9D texture:</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/4=
+WRZ1u4nKhCGYiEZXY5fJY?w=3D800&amp;fit=3Dmax" width=3D"800" style=3D'font-fa=
+mily:"Georgia", serif;color:#232323;max-width:100%;height:auto;border-radiu=
+s:0;width:800px;max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:block'>That right image=C2=A0=E2=80=
+=93 so good!</figcaption></figure></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Icons seems fairly straightfor=
+ward to AI-ify, so hopefully we'll see a good solution soon =F0=9F=99=82</p=
+>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>AI logos (=F0=9F=A4=B7=E2=
+=80=8D=E2=99=82=EF=B8=8F)</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>The logo I used is based on a =
+concept from <a href=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxg=
+v9cl/g3hnh5he0pl659sr/bG9nb2FpLmNvbQ=3D=3D" target=3D"_blank" rel=3D"noopen=
+er noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;font-siz=
+e:17px;line-height:23px;color:#00819d' url-id=3D"1508619303">logoai.com</a>=
+. Even with the AI assist, it took a bunch of manual tweaking.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:600px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:600px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/v=
+YRg7iTz1kMKxBn64TxFN6/email" width=3D"600" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:600px;=
+max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>The above logos <em style=3D'f=
+ont-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;f=
+ont-style:italic'>technically</em> read as logos, but that's the most I'll =
+give 'em=C2=A0=E2=80=93 honestly, <em style=3D'font-family:"Georgia", serif=
+;color:#232323;font-size:17px;line-height:23px;font-style:italic'>they all =
+suck</em>.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Better AI logos are (no doubt)=
+ coming soon, but I suspect humans will still be necessary for the fine det=
+ails/tweaking/execution.</p>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>AI font-picking (=F0=9F=99=
+=88)</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Last week, I asked ChatGPT for=
+ 10 <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;=
+line-height:23px;font-style:italic'>serif</em> font recommendations, and it=
+ gave me:</p>
+<ol class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Two ser=
+if fonts</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Eight s=
+ans-serif fonts</span></li>
+</ol>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>"Screw it", I thought, "It did=
+n't even get as close as Baskerville. Well, I'll pick a font myself. <a hre=
+f=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/9qhzhnhge96zmr=
+b9/aHR0cHM6Ly9mb250cy5nb29nbGUuY29tL3NwZWNpbWVuL01lcnJpd2VhdGhlcg=3D=3D" ta=
+rget=3D"_blank" rel=3D"noopener noreferrer" style=3D'font-family:"Georgia",=
+ serif;color:#232323;font-size:17px;line-height:23px;color:#00819d' url-id=
+=3D"1508619304">Merriweather</a> feels like an obvious great choice here".<=
+/p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Well, I asked ChatGPT again th=
+is morning, <em style=3D'font-family:"Georgia", serif;color:#232323;font-si=
+ze:17px;line-height:23px;font-style:italic'>aaaaand</em>=E2=80=A6</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:547px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:547px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/3=
+gXqAa5nSU7MxaVAzwbmyM/email" width=3D"547" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:547px;=
+max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>I'm not at all comfortable wit=
+h the gains it's made over the weekend =F0=9F=98=82</p>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>AI for image background-re=
+moving</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>OK, I didn't use this for the =
+woodworker example, but <a href=3D"https://click.convertkit-mail.com/0vu87m=
+em46s9hokxgv9cl/3ohphkhqkz24llar/aHR0cHM6Ly9pY29uczguY29tL2JncmVtb3Zlcg=3D=
+=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D'font-family:"Ge=
+orgia", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d' =
+url-id=3D"1508619305">Background Remover</a> (<a href=3D"https://click.conv=
+ertkit-mail.com/0vu87mem46s9hokxgv9cl/n2hohvhnlrx6p9u6/aHR0cHM6Ly93d3cuZmln=
+bWEuY29tL2NvbW11bml0eS9wbHVnaW4vOTk3NjQzMDk2Njc5NTExMjE2" target=3D"_blank"=
+ rel=3D"noopener noreferrer" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;color:#00819d' url-id=3D"1508619306">=
+Figma plugin here</a>), <a href=3D"https://click.convertkit-mail.com/0vu87m=
+em46s9hokxgv9cl/48hvheh07gp6e4ux/aHR0cHM6Ly93d3cucmVtb3ZlLmJnLw=3D=3D" targ=
+et=3D"_blank" rel=3D"noopener noreferrer" style=3D'font-family:"Georgia", s=
+erif;color:#232323;font-size:17px;line-height:23px;color:#00819d' url-id=3D=
+"1508619307">Remove Background</a>, etc. are <em style=3D'font-family:"Geor=
+gia", serif;color:#232323;font-size:17px;line-height:23px;font-style:italic=
+'>amazing</em> at their job. The days of cracking open Photoshop to remove =
+a background are all but <em style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;font-style:italic'>gone</em>.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:503px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:503px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/g=
+5xnEhN6ZR69p73P6ca9Vo/email" width=3D"503" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:503px;=
+max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>The "final" verdict</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>This field is moving <em style=
+=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:2=
+3px;font-style:italic'>unbelievably</em> fast. It's unreal.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Lexica Aperture, released last=
+ week.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>ChatGPT, 3 weeks ago.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>DALL-E, opened to the public 3=
+ months ago.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>So any "final" verdict is subj=
+ect to some pretty serious caveats, BUT... I think I'm starting to catch <e=
+m style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-h=
+eight:23px;font-style:italic'><strong style=3D'font-family:"Georgia", serif=
+;color:#232323;font-size:17px;line-height:23px;font-weight:bold'>glimpses</=
+strong></em><strong style=3D'font-family:"Georgia", serif;color:#232323;fon=
+t-size:17px;line-height:23px;font-weight:bold'> of the future of design</st=
+rong>.</p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>AI tool=
+s will be the best thing to ever happen to ideation/brainstorming/inspirati=
+on</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Any vis=
+ual asset that is remotely "stock" feeling will be <em style=3D'font-family=
+:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-style:=
+italic'>far</em> easier to generate with AI</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Having =
+good taste is about to become a <em style=3D'font-family:"Georgia", serif;c=
+olor:#232323;font-size:17px;line-height:23px;font-style:italic'>lot</em> mo=
+re valuable (sales pitch: stick around on this newsletter, I'll be breaking=
+ down <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17p=
+x;line-height:23px;font-style:italic'>why</em> good design works =F0=9F=98=
+=8E)</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Anythin=
+g that requires serious theory of mind =E2=80=93 putting yourself into anot=
+her human's shoes and thinking from their point of view =E2=80=93=C2=A0will=
+ be <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;=
+line-height:23px;font-style:italic'>very</em> tough for AI to do. This incl=
+udes everything from <em style=3D'font-family:"Georgia", serif;color:#23232=
+3;font-size:17px;line-height:23px;font-style:italic'>UX research</em> to <e=
+m style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-h=
+eight:23px;font-style:italic'>interaction design</em> to <em style=3D'font-=
+family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-=
+style:italic'>writing great sales copy</em>.</span></li>
+</ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Anyhow, I <em style=3D'font-fa=
+mily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-st=
+yle:italic'>highly</em> recommend opening up <a href=3D"https://click.conve=
+rtkit-mail.com/0vu87mem46s9hokxgv9cl/wnh2hghrlgkxp0c7/aHR0cHM6Ly9jaGF0Lm9wZ=
+W5haS5jb20vY2hhdA=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:=
+23px;color:#00819d' url-id=3D"1508619308">ChatGPT</a>, <a href=3D"https://c=
+lick.convertkit-mail.com/0vu87mem46s9hokxgv9cl/qvh8h7h8ln4o5ztl/aHR0cHM6Ly9=
+sYWJzLm9wZW5haS5jb20v" target=3D"_blank" rel=3D"noopener noreferrer" style=
+=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:2=
+3px;color:#00819d' url-id=3D"1508619302">DALL-E</a>, <a href=3D"https://cli=
+ck.convertkit-mail.com/0vu87mem46s9hokxgv9cl/58hvh7h547nk8li6/aHR0cHM6Ly9sZ=
+XhpY2EuYXJ0L2FwZXJ0dXJl" target=3D"_blank" rel=3D"noopener noreferrer" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:=
+23px;color:#00819d' url-id=3D"1508619300">Lexica Aperture</a>, <a href=3D"h=
+ttps://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/6qheh8hp3o5ngnso/aHR=
+0cHM6Ly9taWRqb3VybmV5LmNvbS8=3D" target=3D"_blank" rel=3D"noopener noreferr=
+er" style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line=
+-height:23px;color:#00819d' url-id=3D"1508619298">Midjourney</a>, and <a hr=
+ef=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/3ohphkhqkz24l=
+lar/aHR0cHM6Ly9pY29uczguY29tL2JncmVtb3Zlcg=3D=3D" target=3D"_blank" rel=3D"=
+noopener noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;fo=
+nt-size:17px;line-height:23px;color:#00819d' url-id=3D"1508619305">Backgrou=
+nd Remover</a> and playing around a bit. It's Christmas week (have a merry =
+one! =F0=9F=8E=84), and if I remember the corporate world correctly, no rea=
+l work is getting done anyways =F0=9F=98=89</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Cheers,<br style=3D'font-famil=
+y:"Georgia", serif;color:#232323'>Erik D. Kennedy</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>PS. I've recently added <a hre=
+f=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/reh8hohqox3wro=
+i2/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbiNlbnJvbGwtbm93" target=3D"_blank" rel=3D"n=
+oopener noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;fon=
+t-size:17px;line-height:23px;color:#00819d' url-id=3D"1508619309">self-serv=
+ice signups</a> for businesses looking to enroll multiple seats in Learn UI=
+ Design / Learn UX Design. If you have education budget to burn, check it o=
+ut. Individual enrollment will open in January after I finish a few more co=
+urse changes =F0=9F=98=8E</p>
+</div>
+
+  <div class=3D"footer" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;border-top:1px dotted #666;padding:20px 0p=
+x;color:#4a4a4a;font-size:13px;line-height:17px;opacity:0.7'>Hi Lila! =F0=
+=9F=91=8B You got this email because you signed up for Design Hacks. I send=
+ out original UI/UX design tutorials and occasional news on my two design c=
+ourses: <a href=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/=
+08hwh9hmpz9g54fl/aHR0cDovL2xlYXJudWkuZGVzaWdu" style=3D'font-family:"Georgi=
+a", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d;font-=
+size:inherit;line-height:inherit' url-id=3D"1508619310">Learn UI Design</a>=
+ &amp; <a href=3D"https://click.convertkit-mail.com/0vu87mem46s9hokxgv9cl/8=
+ghqhohg792qv4sk/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2l=
+nbi5odG1s" style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;color:#00819d;font-size:inherit;line-height:inherit' ur=
+l-id=3D"1508619311">Learn UX Design</a>. You can <a href=3D"https://prefere=
+nces.convertkit-mail.com/0vu87mem46s9hokxgv9cl" style=3D'font-family:"Georg=
+ia", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d;font=
+-size:inherit;line-height:inherit'>edit your name/email</a> or <a href=3D"h=
+ttps://unsubscribe.convertkit-mail.com/0vu87mem46s9hokxgv9cl" style=3D'font=
+-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;colo=
+r:#00819d;font-size:inherit;line-height:inherit'>stop getting emails</a> if=
+ you want (don=E2=80=99t click those if you were forwarded this email =F0=
+=9F=99=82). Drop me a line if you're ever in my neck of the woods =E2=86=92=
+ PO Box 386, Maple Valley, WA 98038. Cheers!</div>
+
+</div>
+<!--[if mso]>
+  </td></tr></table>
+  </center>
+<![endif]-->
+<!-- -->
+<img src=3D"https://open.convertkit-mail.com/0vu87mem46s9hokxgv9cl" alt=3D"=
+" style=3D'font-family:"Georgia", serif;color:#232323'>
+</body>
+</html>
+
+--6895dabff3e1d24e523b9a5fd33618a0c1f88a6423f52c23658d1a9f0c81--

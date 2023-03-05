@@ -1,0 +1,372 @@
+Delivered-To: lilapapazian@gmail.com
+Received: by 2002:a17:906:4c58:0:0:0:0 with SMTP id d24csp328693ejw;
+        Thu, 6 Jan 2022 03:02:01 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwtMmMX1lKNn1Fgg5N5PTrgxgCipasAH4hYSNKw/ET4eRvu0OyMmPvcQnAHB4NeS0KXxx/N
+X-Received: by 2002:a05:622a:1b86:: with SMTP id bp6mr52723411qtb.157.1641466921528;
+        Thu, 06 Jan 2022 03:02:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1641466921; cv=none;
+        d=google.com; s=arc-20160816;
+        b=kRoIyd2bFsja5lEoSPt106jTEXBTuusXC4hpIYWYrF9/OPE0Fcuc1VDrV18Yc4uU31
+         djjtRe5DjIx2iioOdxzky8xTBSrj3yXYFu1vB2SWGjWs410hOcFzOxj1frOlkeInFUGD
+         X/dE2JSYRiYwWRGs/OivYq8xA5vO4EwQTpL57kCO5Rkls+NtPEz446LolyQKKZCRPRCi
+         PLeCdknuTt7cPeJ1bO6x3v9pBzzCYji/x4prbv/VIjvweaRg0RH1qs7IRRJvjK5pShS/
+         V+adbWII9G7YFnCX3lPynkufpQ/7owrYKK/KHDDqSfxRbl1gDEoapuu7TJsWinlv9gl4
+         SSpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:list-unsubscribe:feedback-id:precedence:subject:message-id
+         :mime-version:from:date:dkim-signature:dkim-signature;
+        bh=zRgjjmpM4dsDY6GH2qYsy1DwSv2AD94bFUKUrZDpi/g=;
+        b=maymsmxse39IMEex9KKzqWxNbhZpwaphSTXJXfXn9VTKSyYHVWKvc5198Gz2NOkV7O
+         DiCAg3NhU8jXtuGQZuBk+wPTJX612ZVB4DW61k2/g7yW7wovwPLn2xmSt7V9Yyi7nbiP
+         WzDLE1pGdnsRbSSqIBE2ePO1YPbjrNKXJAReEySyUAe5taHxHsprdW7i9qczWNxlKuDz
+         CMcYMbhJhhFGK5Qy+nEgRApLOLfA8iBS2m/rax/IaCQGVg4LZ/VgtHOiGFn0LLcC7LyD
+         m6K9aqKdudj3CTIIxyPjyZarFUPdh4TJwW2dIR9E6V6//vm7EBTRBbaLhnlUp8ehu3IE
+         ehrg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=J9Og8RFb;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ng9G2iVO;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.80.39 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+Return-Path: <bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com>
+Received: from o9.ck.n.convertkit.com (o9.ck.n.convertkit.com. [167.89.80.39])
+        by mx.google.com with ESMTPS id i11si536571qtx.504.2022.01.06.03.02.01
+        for <lilapapazian@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Jan 2022 03:02:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.80.39 as permitted sender) client-ip=167.89.80.39;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=J9Og8RFb;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ng9G2iVO;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.80.39 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=n.convertkit.com;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to;
+	s=s1; bh=zRgjjmpM4dsDY6GH2qYsy1DwSv2AD94bFUKUrZDpi/g=;
+	b=J9Og8RFbJrpZpO0hp+uSlP8houXDbYkEu7im1fUw/2yBZcPozuQMujFyMn0SBEsT//3I
+	A+VT3yI6RTFZ/dOBKXgshx8zHCt2yn4UafHRKXpR1lt+4ZGF8AiiNUOzp9vTtbBq3g0ZC8
+	AW9EzWF8Nbsq87BgS4m9/dHwBCji9jxqaYbdGFffdI5z7iigZODczonERrOoOcvcsVGAPk
+	loUPbEkQsvaIIlbWc7RpObchc/fHWW6FbETnlo2Xj0WxMNrA670C66y9QsX/zHId6PpB+1
+	t6Mei5ahupgjS9Ylk4PUvh6NXyix6l2EUvAKuldnW9qUIrNIo8muh5pwgeN/ESAQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to;
+	s=smtpapi; bh=zRgjjmpM4dsDY6GH2qYsy1DwSv2AD94bFUKUrZDpi/g=;
+	b=ng9G2iVOWBteyFq3Q/y9/W/cTvDZbaU9rsWqqb3ENLDxkBDGugSTdXcPTEbJKcGQEKBe
+	C4mZ49RrgOgtHabSBA7ZjoUEOJO7p/Nafat7EH+Dt04aNrHBxO4veAj8v1IIy0UABiIXkM
+	2gfMI76xtdl3M+nwodRIp5TqXKtdamr4w=
+Received: by filterdrecv-7bc86b958d-qrvxl with SMTP id filterdrecv-7bc86b958d-qrvxl-1-61D6CC28-92
+        2022-01-06 11:02:00.727733526 +0000 UTC m=+10932086.090809612
+Received: from ODc0OTYxMA (unknown)
+	by ismtpd0207p1iad2.sendgrid.net (SG)
+	with HTTP
+	id aZMWOiNsTYuj2kk2z6sOsQ
+	Thu, 06 Jan 2022 11:02:00.681 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=e529ca6e4b50053ef3699775231576e1bc065256749cabce5a148bb52075
+Date: Thu, 06 Jan 2022 11:02:01 +0000 (UTC)
+From: "Erik D. Kennedy" <erik@learnui.design>
+Mime-Version: 1.0
+Message-ID: <n4umxdqd4wcvh48e8ms6@convertkit-mail.com>
+Subject: 30-second design lesson (on choosing colors =?UTF-8?B?8J+OqCk=?=
+Precedence: bulk
+Feedback-ID: 7319846:39008:broadcast:CK
+List-Unsubscribe: 
+ <https://unsubscribe.convertkit-mail.com/n4umxdqd4wcvh48e8ms6>
+X-Report-Spam: <abuse@convertkit.com>
+X-Report-Abuse: <abuse@convertkit.com>
+X-Feedback-ID: 8749610:SG
+X-SG-EID: 
+ =?us-ascii?Q?EDG+KXEj7hMIzJV17jd5qsGcPZPEO4TsG4phGcpDP3WLU7hbEUvMpOEUmBbgkZ?=
+ =?us-ascii?Q?Hm2NaOmOBejwPTE2rTyqmytT6qEF2T=2F5FKYo6A7?=
+ =?us-ascii?Q?osetOxjMjQf2q4MML0htp37RUJxfc6bUIO=2Fs439?=
+ =?us-ascii?Q?DlQvB+I7Ga9Sjh30DxSlTy4XUfkKl287M7fejT1?=
+ =?us-ascii?Q?r6VLYj+nWdBbnr7OkOjz=2FlwHqepqRMMwcDijAQw?=
+ =?us-ascii?Q?9+J6LiTwx4V7q8Xj5q9XjTPdmxyg7Rz8FCXoPs?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJHjDFAea1uZocvZojyqe?=
+ =?us-ascii?Q?ADAbfZPsHBtdM3NofkewEp6JJomF17x6tHIUQx+?=
+ =?us-ascii?Q?N7N0NM+o8iZbqTq0a9GXUwmi49WuYoqDj3pB+s0?=
+ =?us-ascii?Q?xp5tWtmxhbGoHVPwrc1zatngWDl6c3jJj2UZSty?=
+ =?us-ascii?Q?8fiQ2LqD4d5+y7aAjqwoPaJ9yGEmbqtZjJ6RmL5?=
+ =?us-ascii?Q?nr56uYEArFnc460j=2FFssfMdenrf245xN7dmBeNZ?=
+ =?us-ascii?Q?SwL+MTh9sfLd8Ulqx9=2F9n2QGkqeNwfdQ9mb88wd?=
+ =?us-ascii?Q?nlcHkMxvBDYFxbxt58J8olidWL2xZr2edm0bIcH?=
+ =?us-ascii?Q?hZOT0ub6rcCV5w8Hs+JLRK8GN6UI=2FuLVJRonmWf?=
+ =?us-ascii?Q?2Y3Z6myZyB?=
+To: Lila <lilapapazian@gmail.com>
+X-Entity-ID: JG8Lqh/QTEp30TAc2PSDRA==
+
+--e529ca6e4b50053ef3699775231576e1bc065256749cabce5a148bb52075
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Sup Lila,
+
+Notice anything similar about these screenshots of great UI?
+
+(I'll give you a hint: it involves colors)
+
+=E2=80=8B
+
+=E2=80=8B
+
+=E2=80=8B
+
+=E2=80=8B
+Answer: they all have two brand colors - one warm one cool. Also,
+here's what I mean by "warm color" and "cool color":
+
+=E2=80=8B
+If you have a single brand color and need to add an accent color,
+look to have one warm and the other cool.
+
+They will contrast and complement each other in a way that's
+tougher to get right with two warms and two cools.
+
+Scroll through the images above again and notice how the warm
+color and cool color together make the palette feel balanced and
+interesting.
+
+It's not the most revolutionary framework in the world, but just
+a little trick I wish I had been told when I was a beginning
+designer =F0=9F=99=82
+
+And there's a ton more tricks like this in the color unit of
+Learn UI Design (
+https://click.convertkit-mail.com/n4umxdqd4wcvh48e8ms6/3ohphkhqz56g8nhr/aHR=
+0cHM6Ly9sZWFybnVpLmRlc2lnbi8=3D
+), which opens for new enrollments on Wednesday Jan 12.
+
+=E2=80=8B
+
+=E2=80=8B
+What's a design tip you wish you had known when you were starting
+out? I'd love to hear - and I'll read every response =F0=9F=98=8E
+
+Cheers,Erik
+
+The Design Newsletter is written by me, Erik Kennedy (
+https://click.convertkit-mail.com/n4umxdqd4wcvh48e8ms6/reh8hohqxl9zpmt2/aHR=
+0cDovL2VyaWtka2VubmVkeS5jb20=3D
+). I generally send out only (a) in-depth, (b) original design
+writing that (c) I would've wanted to read as a beginning
+designer, and occasional news on Learn UI Design (
+https://click.convertkit-mail.com/n4umxdqd4wcvh48e8ms6/8ghqhohg96en89ak/aHR=
+0cDovL2xlYXJudWkuZGVzaWdu
+) & Learn UX Design (
+https://click.convertkit-mail.com/n4umxdqd4wcvh48e8ms6/m2h7h5hoe6kzxvcm/aHR=
+0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2lnbi5odG1s
+). You can change your name/email here (
+https://preferences.convertkit-mail.com/n4umxdqd4wcvh48e8ms6 ).
+If you are no longer interested in receiving design tutorials and
+news =E2=86=92 Unsubscribe (
+https://unsubscribe.convertkit-mail.com/n4umxdqd4wcvh48e8ms6 ).
+Drop me a line if you're ever in my neck of the woods =E2=86=92 PO Box
+386, Maple Valley, WA 98038. Cheers!
+--e529ca6e4b50053ef3699775231576e1bc065256749cabce5a148bb52075
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+
+
+<!--[if mso]>
+  <center>
+  <table><tr><td width=3D"580">
+<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" st=
+yle=3D"font-family:Georgia, Times, serif"><style>a:hover{color:#1b8ede}
+.button:hover{color:#fff;background:#666}</style><div class=3D"message-cont=
+ent" style=3D"font-size:17px;line-height:24px;color:#333333;margin-bottom:1=
+em;max-width:600px;font-family:Georgia, Times, serif">
+
+  <div style=3D"font-size:17px;line-height:24px;color:#333333;font-family:G=
+eorgia, Times, serif;margin-bottom:1em;padding-bottom:10px">
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Sup Lila,</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Notice anything similar about these scr=
+eenshots of great UI?</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">(I'll give you a hint: it involves <em =
+style=3D"font-family:Georgia, Times, serif">colors</em>)</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:600px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:600px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/jpG79a5eAGqtXAK84mUp3g/email" wi=
+dth=3D"600" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:600px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:600px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:600px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/r9HeNHd6QqszVTmtSwBSMM/email" wi=
+dth=3D"600" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:600px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:600px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:600px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/uM3JNEK6BTF8yMsK1FnGXm/email" wi=
+dth=3D"600" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:600px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:600px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:600px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/aj4u8dpquiBxuXm5Zey136/email" wi=
+dth=3D"600" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:600px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Answer: they all have <strong style=3D"=
+font-family:Georgia, Times, serif">two brand colors - one warm one cool. </=
+strong>Also, here's what I mean by "warm color" and "cool color":</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:600px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:600px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/q1BcqUA3f7QArTrA7ZgdEZ/email" wi=
+dth=3D"600" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:600px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">If you have a <strong style=3D"font-fam=
+ily:Georgia, Times, serif">single brand color</strong> and need to <em styl=
+e=3D"font-family:Georgia, Times, serif"><strong style=3D"font-family:Georgi=
+a, Times, serif">add</strong></em><strong style=3D"font-family:Georgia, Tim=
+es, serif"> an accent color,</strong> look to have <strong style=3D"font-fa=
+mily:Georgia, Times, serif">one warm </strong><em style=3D"font-family:Geor=
+gia, Times, serif"><strong style=3D"font-family:Georgia, Times, serif">and =
+the other cool.</strong></em> </p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">They will contrast and complement each =
+other in a way that's tougher to get right with two warms and two cools.</p=
+>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Scroll through the images above again a=
+nd notice how the warm color and cool color together make the palette feel =
+<em style=3D"font-family:Georgia, Times, serif"><strong style=3D"font-famil=
+y:Georgia, Times, serif">balanced</strong></em><strong style=3D"font-family=
+:Georgia, Times, serif"> and </strong><em style=3D"font-family:Georgia, Tim=
+es, serif"><strong style=3D"font-family:Georgia, Times, serif">interesting<=
+/strong></em>.</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">It's not the most revolutionary framewo=
+rk in the world, but just a little trick I wish I had been told when I was =
+a beginning designer =F0=9F=99=82</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">And there's a ton more tricks like this=
+ in the color unit of <a href=3D"https://click.convertkit-mail.com/n4umxdqd=
+4wcvh48e8ms6/3ohphkhqz56g8nhr/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi8=3D" target=3D=
+"_blank" rel=3D"noopener noreferrer" style=3D"font-family:Georgia, Times, s=
+erif;color:#0875c1" url-id=3D"1431291413"><u style=3D"font-family:Georgia, =
+Times, serif">Learn UI Design</u></a>, which <strong style=3D"font-family:G=
+eorgia, Times, serif">opens for new enrollments</strong> on <strong style=
+=3D"font-family:Georgia, Times, serif">Wednesday Jan 12.</strong></p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:12px 0;max-width:100%;width:600px"><div style=3D"font-size:17px;line-he=
+ight:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em=
+;padding-bottom:10px;display:block;max-width:600px"><img src=3D"https://emb=
+ed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/t8MqnapFJA3kkMgLnHS9iC/email" wi=
+dth=3D"600" style=3D"font-family:Georgia, Times, serif;max-width:100%;heigh=
+t:auto;width:600px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"font-family:Georgia, Times, serif;table-layout:fixed"><tbody style=3D"=
+font-family:Georgia, Times, serif"><tr style=3D"font-family:Georgia, Times,=
+ serif"><td align=3D"center" style=3D"font-family:Georgia, Times, serif"><f=
+igure style=3D"font-family:Georgia, Times, serif;margin:0;display:block;mar=
+gin:0px 0;max-width:100%;width:580px"><div style=3D"font-size:17px;line-hei=
+ght:24px;color:#333333;font-family:Georgia, Times, serif;margin-bottom:1em;=
+padding-bottom:10px;display:block;max-width:580px"><img src=3D"https://embe=
+d.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/oGmqBa7z5XsFZU85jsbvDT/email" wid=
+th=3D"580" style=3D"font-family:Georgia, Times, serif;max-width:100%;height=
+:auto;width:580px;max-width:100%;border-radius:0px"></div>
+<figcaption style=3D"font-family:Georgia, Times, serif;font-size:15px;opaci=
+ty:0.75;text-align:center;display:none">=E2=80=8B</figcaption></figure></td=
+></tr></tbody></table>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">What's a design tip you wish you had kn=
+own when you were starting out? I'd love to hear - and I'll read every resp=
+onse =F0=9F=98=8E</p>
+<p style=3D"font-size:17px;line-height:24px;color:#333333;font-family:Georg=
+ia, Times, serif;margin-bottom:1em">Cheers,<br style=3D"font-family:Georgia=
+, Times, serif">Erik</p>
+</div>
+
+  <div class=3D"footer" style=3D"font-size:17px;line-height:24px;color:#333=
+333;font-family:Georgia, Times, serif;margin-bottom:1em;border-top:1px dott=
+ed #666;padding:20px 0px;font-family:Helvetica, Arial, sans-serif;color:#aa=
+a;font-size:11px;line-height:1.25;padding-bottom:10px">The Design Newslette=
+r is written by me, <a href=3D"https://click.convertkit-mail.com/n4umxdqd4w=
+cvh48e8ms6/reh8hohqxl9zpmt2/aHR0cDovL2VyaWtka2VubmVkeS5jb20=3D" style=3D"fo=
+nt-family:Georgia, Times, serif;color:#0875c1;font-family:Helvetica, Arial,=
+ sans-serif" url-id=3D"1431291417">Erik Kennedy</a>. I generally send out o=
+nly (a) in-depth, (b) original design writing that (c) I would've wanted to=
+ read as a beginning designer, and occasional news on <a href=3D"https://cl=
+ick.convertkit-mail.com/n4umxdqd4wcvh48e8ms6/8ghqhohg96en89ak/aHR0cDovL2xlY=
+XJudWkuZGVzaWdu" style=3D"font-family:Georgia, Times, serif;color:#0875c1;f=
+ont-family:Helvetica, Arial, sans-serif" url-id=3D"1431291419">Learn UI Des=
+ign</a> &amp; <a href=3D"https://click.convertkit-mail.com/n4umxdqd4wcvh48e=
+8ms6/m2h7h5hoe6kzxvcm/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4L=
+WRlc2lnbi5odG1s" style=3D"font-family:Georgia, Times, serif;color:#0875c1;f=
+ont-family:Helvetica, Arial, sans-serif" url-id=3D"1431291422">Learn UX Des=
+ign</a>. You can <a href=3D"https://preferences.convertkit-mail.com/n4umxdq=
+d4wcvh48e8ms6" style=3D"font-family:Georgia, Times, serif;color:#0875c1;fon=
+t-family:Helvetica, Arial, sans-serif">change your name/email here</a>. If =
+you are no longer interested in receiving design tutorials and news =E2=86=
+=92 <a href=3D"https://unsubscribe.convertkit-mail.com/n4umxdqd4wcvh48e8ms6=
+" style=3D"font-family:Georgia, Times, serif;color:#0875c1;font-family:Helv=
+etica, Arial, sans-serif">Unsubscribe</a>. Drop me a line if you're ever in=
+ my neck of the woods =E2=86=92 PO Box 386, Maple Valley, WA 98038. Cheers!
+  </div>
+</div>
+<!--[if mso]>
+  </td></tr></table>
+  </center>
+<![endif]-->
+<!-- -->
+<img src=3D"https://open.convertkit-mail.com/n4umxdqd4wcvh48e8ms6" alt=3D""=
+ style=3D"font-family:Georgia, Times, serif">
+
+--e529ca6e4b50053ef3699775231576e1bc065256749cabce5a148bb52075--

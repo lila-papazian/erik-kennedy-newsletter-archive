@@ -1,0 +1,594 @@
+Delivered-To: lilapapazian@gmail.com
+Received: by 2002:ac8:47cf:0:0:0:0:0 with SMTP id d15csp58332qtr;
+        Tue, 29 Nov 2022 03:03:44 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf5DmdTxAAzbX7diYH+uVypL3T0r+xJ4+4n3VvJFWQ4FrlVhQzfN0hvJVp/5gu1HDJJ4fK1F
+X-Received: by 2002:a37:583:0:b0:6ec:76df:83d1 with SMTP id 125-20020a370583000000b006ec76df83d1mr50096331qkf.749.1669719824050;
+        Tue, 29 Nov 2022 03:03:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1669719824; cv=none;
+        d=google.com; s=arc-20160816;
+        b=KRzpHbsKzcTlgbL5YUQ00yYt+AXv1yTL3s6duXBbz2+ewsmNGj8WMxtGxb/SeeZDUv
+         xyewnTRPIBWJyIutWlg7csbseN0uQVdvpfZssZv6Q8C8lYDcSkoe6sAwb9q8Z1QqqnFT
+         4ccg8QFk8fl8cGOKhUBccWuz+Bwser7+UvZAREE3cRq/ln43iNLhyX9eyCYFY/pn04bK
+         q/yMJgjtILVYXsHnuNrIOs87tDdd/g9O3Z2x9nduG5B0noCY19IwPrkmwDp5LzF8b1MD
+         A3SR5iKRoNtjmCNHe1drRTBERSnReimDI9ZBmfnfnsu0tBUIc+Koct/rLoOEa31azyDD
+         qraQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:precedence:list-unsubscribe:feedback-id:subject:message-id
+         :mime-version:from:date:dkim-signature:dkim-signature;
+        bh=X0izOOn1/svKtLvHxsLZZFnNy1oQ3SalR1wda+iLctw=;
+        b=bUXfJ94dDB6iV4x7IwWdjqyYA4aOdcyzrR9Pr4zz8bXiAsonRIBLJq4FcCDTx6YlKI
+         C8rNDHzJMAEO3PajFJZ8t/pibG20atB7trW1H9/ETrtrcF431zKo5XExXD2s8zIeFSIA
+         fAOXE8Y53SRODBPHLiCodcfrBUCcICkN0kPbHFC3ChLp08Uqd92gDsBoubkdn0DuhtqE
+         awGk9A/0doUqkl0c3OVGzjei6nOE9pp800EpEOfomY0xH818sdvPLRiZtzfHBV/KJTFZ
+         fFgrx8GjRbolsM9+tZg4d9vok09lYx+Y+D0yaszDwyYhRkfHjhkU4HM4eDHPioLLLCkU
+         6/jg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=YhX1tZV3;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=DmPO9cSm;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.31.253 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+Return-Path: <bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com>
+Received: from o17.ck.n.convertkit.com (o17.ck.n.convertkit.com. [167.89.31.253])
+        by mx.google.com with ESMTPS id x16-20020a05620a449000b006fc5a1d9bb7si7647308qkp.101.2022.11.29.03.03.43
+        for <lilapapazian@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Nov 2022 03:03:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.31.253 as permitted sender) client-ip=167.89.31.253;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=YhX1tZV3;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=DmPO9cSm;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 167.89.31.253 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=n.convertkit.com;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc;
+	s=s1; bh=X0izOOn1/svKtLvHxsLZZFnNy1oQ3SalR1wda+iLctw=;
+	b=YhX1tZV3rRxRNO49PIkSrkZTare+FEGqpbtgYc4XXSvViKwFr8fNz2fwlmxdrRcsMmGB
+	n7goetJw14n96ZtX5IJnye3LCCk2qzsphP81LfT9dS6bE8GDH/Bj3FtFHWHu2yweZIcdVG
+	OERuS6VuPUVhLhKPD1AnxrAF0RemtTnWAEBCSBO35g9qtJVBqsTghVk5CWb9zIULE+xb38
+	PQEc+wCixKBy+uG4rF4xYkrJbvl7xNwAsDiO23s4OGL9E7X+OriInx5Qj1N1fY9XThpkRO
+	eSUuKgRPVU3fvQst4nOJtyeR6q8zfe2E2LhJQtoGg/vaocGfO/nSfzGZ1UHkQEfA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc;
+	s=smtpapi; bh=X0izOOn1/svKtLvHxsLZZFnNy1oQ3SalR1wda+iLctw=;
+	b=DmPO9cSm4ys46XqgiMmhHaUUyAzg20WFS8nxSitl5t2XzJSvQAluTGd08+IAhH9TmV3t
+	/wvayXSBnaPZkJFqRoXj8ivhBNWfk+GAcreBMYMMiUwrRSBUBubQeuXj1mhM0F7MEecH0y
+	ANd5V833fT+OtDKvljD8w6kv29VLFFeeU=
+Received: by filterdrecv-58d984d666-pdgd9 with SMTP id filterdrecv-58d984d666-pdgd9-1-6385E70E-30
+        2022-11-29 11:03:42.718006325 +0000 UTC m=+993329.345011945
+Received: from ODc0OTYxMA (unknown)
+	by geopod-ismtpd-6-2 (SG) with HTTP
+	id AxslUz6BQ52YZ-BItemNxA
+	Tue, 29 Nov 2022 11:03:42.539 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=5874b1bb361247f9308d2b094dcd8136982c58eb45b0cfcdb49fe6b00105
+Date: Tue, 29 Nov 2022 11:03:43 +0000 (UTC)
+From: "Erik D. Kennedy" <erik@learnui.design>
+Mime-Version: 1.0
+Message-ID: <v8uownqnkvcrhx3rwd4hg@convertkit-mail.com>
+Subject: How to cure a BORING design =?UTF-8?B?8J+lsQ==?= (interface therapy)
+Feedback-ID: 9522555:39008:broadcast:CK
+List-Unsubscribe: 
+ <https://unsubscribe.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg>
+X-Report-Spam: <abuse@convertkit.com>
+X-Report-Abuse: <abuse@convertkit.com>
+Precedence: bulk
+X-Feedback-ID: 8749610:SG
+X-SG-EID: 
+ =?us-ascii?Q?EDG+KXEj7hMIzJV17jd5qsGcPZPEO4TsG4phGcpDP3WLU7hbEUvMpOEUmBbgkZ?=
+ =?us-ascii?Q?Hm2NaOmOBejwPTE2rTyqmytT7MTBPKSvY6PO+qp?=
+ =?us-ascii?Q?rYUB=2FNXa2oAKKQxLEM8tP3t1HBuxeLLT1Xk06D6?=
+ =?us-ascii?Q?ivF5qk3Cz6IRQv+HEiNfILCJMrXJgN7JWcuAXed?=
+ =?us-ascii?Q?gsK7P5Kep75un1rS0I=2FCLFjOufWvTMYKqHppyJ2?=
+ =?us-ascii?Q?TcZgMAOFSVHL=2F4YKeC1hQkBbwwnPilnQUJNgrw?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJHjDFAea1uZocvZojyqe?=
+ =?us-ascii?Q?ADBrHceiEcewAPmh5wzjX16HVEbyG2XyUkbHPzC?=
+ =?us-ascii?Q?WtBw0hMYDfHMDVmCI74zu2B2OZ2EImrv4g0O8lc?=
+ =?us-ascii?Q?nXHdZ4vMuGDlOeNddokBGj7sGldmHIpBSY1QYOq?=
+ =?us-ascii?Q?Olx7HdWqxt=2FtufKFu6oMtM0AoMBxu+IVrRwDQmD?=
+ =?us-ascii?Q?=2FB+vpUYDh4zxc4eMgMm6tp=2F8rwF=2FR3N5gTYCTH7?=
+ =?us-ascii?Q?XtxslLxLQE8SVYkDb+g3wZI+MAppWNQYP78Exf8?=
+ =?us-ascii?Q?FXE+IfhAgR6j6ykRNewcU1llJN2NL2CQNINJ1c6?=
+ =?us-ascii?Q?bJg9TKhq44xVRHB+dzXREl2456JEmsE6UyEuvUs?=
+ =?us-ascii?Q?G3qPYbY4Zz?=
+To: Lila <lilapapazian@gmail.com>
+X-Entity-ID: JG8Lqh/QTEp30TAc2PSDRA==
+
+--5874b1bb361247f9308d2b094dcd8136982c58eb45b0cfcdb49fe6b00105
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hey Lila,
+
+There are certain problems I will always be GLAD to have:
+
+* I'm super sore=E2=80=A6 because I had a great workout =F0=9F=92=AA
+* I'm exhausted=E2=80=A6 because I stayed up too late talking to great
+friends from out of town =E2=99=A5=EF=B8=8F
+* I'm swamped in customer service stuff... because I have a bunch
+of new customers! =F0=9F=95=BA
+
+Well, there's a design analog too:
+
+* My design has strong fundamentals (good alignment, spacing,
+hierarchy, etc)=E2=80=A6 but it's BORING =F0=9F=A5=B1
+
+This is an AWESOME problem to have because there are a few REALLY
+reliable ways to fix it.
+
+Let's talk over an example =E2=80=93 my fake-yet-realistic plain-jane UX
+portfolio =F0=9F=98=8E (inspired by student questions in the Learn UI Desig=
+n
+(
+https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/l2hehmhoxdv5grb6/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbg=3D=3D
+) student community)
+
+=E2=80=8B
+No filler, I'll just tell you the SECRET ALGORITHM for making
+this more interesting (one way, anyhow):
+
+* Write out your brand (how you want users to perceive your
+site/app/biz)
+* Brainstorm how to convey that brand with (a) colors, (b)
+typography, (c) imagery, and (d) design elements and motifs
+* Do visual experiments with all of the above until you find
+something that fits together nicely!
+
+So, step 1 =E2=80=93 what's our brand? Let's go with=E2=80=A6
+
+=F0=9F=91=89 Slightly formal and classic, yet self-aware and modern =F0=9F=
+=91=88
+
+Now, step 2 =E2=80=93 what does this imply for color/type/imagery/design
+elements?
+
+* Typography: serifs! (like we already have) =E2=80=93 but maybe even
+older and more elegant?
+* Color: could be a place to make things feel more
+modern/self-aware =E2=80=93 purple? gradients?
+* Imagery: some random vintage illustration
+* Design elements: maybe old paper texture?
+
+Let's try slapping some of those things together.
+
+=E2=80=8B
+Heyyy, not bad! This should catch a hiring manager's eye like
+100x easier.
+
+Now, to be fair, this is "vintage" cranked up to 11. We've even
+got that obscure "ct" ligature front and center=E2=80=A6 faaaancy =F0=9F=98=
+=8E
+
+But maybe you're like "Erik, chill, it=E2=80=99s a freakin=E2=80=99 UX port=
+folio,
+not a medieval bestiary. It also needs to feel modern and cool=E2=80=9D.
+
+And I hear you.
+
+That's where you can dive back in and start saying:
+
+* What fonts might pair (
+https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/m2h7h5ho4l0krwhm/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbi9ibG9nL2d1aWRlLXBhaXJpbmctZm9udHMuaHRtbA=3D=3D
+) here to make it more modern/cool?
+* What design elements can we add in to the same ends?
+
+And that's where things get REALLY cool =E2=80=93 because if you start
+combining old and classic with modern and technical, you can see
+some really interesting brands. Like.=E2=80=A6...
+
+=E2=80=8B
+Ooh la la =E2=80=93 dot matrix plus display serif! This balanced design
+just puts my cold, analytical heart in a tizzy =F0=9F=98=8D
+
+And I hope it does yours too.
+
+Until next time!
+
+Cheers,Erik D. Kennedy
+
+PS. My courses, Learn UI Design (
+https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/l2hehmhoxdv5grb6/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbg=3D=3D
+) and Learn UX Design (
+https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/dpheh0hqp2wz3dfm/aH=
+R0cHM6Ly9sZWFybnV4LmRlc2lnbg=3D=3D
+) never go on sale. But my free font Figtree (
+https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/7qh7h8h0nxpvglhz/aH=
+R0cHM6Ly9mb250cy5nb29nbGUuY29tL3NwZWNpbWVuL0ZpZ3RyZWU=3D
+) is 100% off =E2=80=93 and now includes ITALICS, live on Google Fonts! =F0=
+=9F=8E=89
+
+Also, I'm shipping custom letterpress posters to the first 25
+people who use Figtree for a live project =E2=80=93 and there are still a
+few posters left.
+
+=E2=80=8B
+If you ship something with Figtree, give me a holler, and I'll
+hook you up =F0=9F=98=8E
+
+Hi Lila! =F0=9F=91=8B You got this email because you signed up for Design
+Hacks. I send out original UI/UX design tutorials and occasional
+news on my two design courses: Learn UI Design (
+https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/z2hghnholmr9gvcp/aH=
+R0cDovL2xlYXJudWkuZGVzaWdu
+) & Learn UX Design (
+https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/x0hph6hnq4d8g5h5/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2lnbi5odG1s
+). You can edit your name/email (
+https://preferences.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg )
+or stop getting emails (
+https://unsubscribe.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg )
+if you want (don=E2=80=99t click those if you were forwarded this email
+=F0=9F=99=82). Drop me a line if you're ever in my neck of the woods =E2=86=
+=92 PO
+Box 386, Maple Valley, WA 98038. Cheers!
+--5874b1bb361247f9308d2b094dcd8136982c58eb45b0cfcdb49fe6b00105
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html style=3D'font-family:"Georgia", serif;color:#232323'>
+<head style=3D'font-family:"Georgia", serif;color:#232323'>
+
+<!--[if mso]>
+  <center>
+  <table><tr><td width=3D"580">
+<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" st=
+yle=3D'font-family:"Georgia", serif;color:#232323'>
+</head>
+<body style=3D'font-family:"Georgia", serif;color:#232323'>
+<div class=3D"message-content" style=3D'font-family:"Georgia", serif;color:=
+#232323;font-size:17px;line-height:23px;margin:0 auto;max-width:600px'>
+
+  <div class=3D"dh-header" style=3D'font-family:"Georgia", serif;color:#232=
+323;font-size:17px;line-height:23px;margin-bottom:30px;border-radius:2px;ba=
+ckground-color:#232323'>
+    <img src=3D"https://learnui.design/extras/img/dh-email-header-hd.png" c=
+lass=3D"dh-header__img" alt=3D"Design Hacks Newsletter" style=3D'font-famil=
+y:"Georgia", serif;color:#232323;display:block;margin:0 auto;width:174px;pa=
+dding:10px 0;max-width:100%;height:auto;border-radius:0;width: 174px;'>
+  </div>
+
+  <div class=3D"spaced-contents" style=3D'font-family:"Georgia", serif;colo=
+r:#232323;font-size:17px;line-height:23px'>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Hey Lila,</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>There are certain problems I w=
+ill <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;=
+line-height:23px;font-style:italic'>always</em> be GLAD to have:</p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>I'm sup=
+er sore=E2=80=A6 because I had a great workout =F0=9F=92=AA</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>I'm exh=
+austed=E2=80=A6 because I stayed up too late talking to great friends  from=
+ out of town =E2=99=A5=EF=B8=8F</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>I'm swa=
+mped in customer service stuff... because I have a bunch of new customers! =
+=F0=9F=95=BA</span></li>
+</ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Well, there's a <em style=3D'f=
+ont-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;f=
+ont-style:italic'>design</em> analog too:</p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'><li class=3D"list_item" style=3D'fo=
+nt-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;ma=
+rgin-bottom:5px'><span style=3D'font-family:"Georgia", serif;color:#232323;=
+font-size:17px;line-height:23px'>My design has <em style=3D'font-family:"Ge=
+orgia", serif;color:#232323;font-size:17px;line-height:23px;font-style:ital=
+ic'><strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;font-weight:bold'>strong fundamentals</strong></em> (g=
+ood alignment, spacing, hierarchy, etc)=E2=80=A6 but it's <strong style=3D'=
+font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;=
+font-weight:bold'><em style=3D'font-family:"Georgia", serif;color:#232323;f=
+ont-size:17px;line-height:23px;font-style:italic'>BORING</em></strong> =F0=
+=9F=A5=B1</span></li></ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>This is an AWESOME problem to =
+have because there are a few <em style=3D'font-family:"Georgia", serif;colo=
+r:#232323;font-size:17px;line-height:23px;font-style:italic'>REALLY reliabl=
+e ways to fix it</em>.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Let's talk over an example =E2=
+=80=93 my fake-yet-realistic plain-jane UX portfolio =F0=9F=98=8E (inspired=
+ by student questions in the <a href=3D"https://click.convertkit-mail.com/v=
+8uownqnkvcrhx3rwd4hg/l2hehmhoxdv5grb6/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbg=3D=3D"=
+ target=3D"_blank" rel=3D"noopener noreferrer" style=3D'font-family:"Georgi=
+a", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d' url-=
+id=3D"1503996467">Learn UI Design</a> student community)</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/k=
+mmsstSmF2njEysZAeUaF/email" width=3D"800" style=3D'font-family:"Georgia", s=
+erif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;m=
+ax-width:100%;border-radius:4px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>No filler, I'll just tell you =
+the SECRET ALGORITHM for making this more interesting (<em style=3D'font-fa=
+mily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-st=
+yle:italic'>one</em> way, anyhow):</p>
+<ol class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Write o=
+ut your <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;font-style:italic'>brand </em>(how you want users to p=
+erceive your site/app/biz)</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Brainst=
+orm how to convey that brand with (a) <strong style=3D'font-family:"Georgia=
+", serif;color:#232323;font-size:17px;line-height:23px;font-weight:bold'>co=
+lors</strong>, (b)<strong style=3D'font-family:"Georgia", serif;color:#2323=
+23;font-size:17px;line-height:23px;font-weight:bold'> typography</strong>, =
+(c) <strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;font-weight:bold'>imagery</strong>, and (d) <strong st=
+yle=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-heigh=
+t:23px;font-weight:bold'>design elements and motifs</strong></span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Do <str=
+ong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line=
+-height:23px;font-weight:bold'>visual experiments</strong> with all of the =
+above until you find something that fits together nicely!</span></li>
+</ol>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>So, step 1 =E2=80=93=C2=A0what=
+'s our brand? Let's go with=E2=80=A6</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>=F0=9F=91=89 <em style=3D'font=
+-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font=
+-style:italic'>Slightly formal and classic, yet self-aware and modern =F0=
+=9F=91=88</em></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Now, step 2 =E2=80=93 what doe=
+s this imply for color/type/imagery/design elements?</p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'><strong=
+ style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-he=
+ight:23px;font-weight:bold'>Typography</strong>: serifs! (like we already h=
+ave)=C2=A0=E2=80=93 but maybe even older and more elegant?</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'><strong=
+ style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-he=
+ight:23px;font-weight:bold'>Color</strong>: could be a place to make things=
+ feel more modern/self-aware =E2=80=93=C2=A0purple? gradients?</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'><strong=
+ style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-he=
+ight:23px;font-weight:bold'>Imagery</strong>: some random vintage illustrat=
+ion</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'><strong=
+ style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-he=
+ight:23px;font-weight:bold'>Design elements</strong>: maybe old paper textu=
+re?</span></li>
+</ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Let's try slapping some of tho=
+se things together.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/q=
+ZjtG6doSDbVvSj2g1ECE3/email" width=3D"800" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;=
+max-width:100%;border-radius:4px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Heyyy, not bad! This should ca=
+tch a hiring manager's eye like 100x easier.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Now, to be fair, this is "vint=
+age" cranked up to 11. We've even got that obscure "ct" ligature front and =
+center=E2=80=A6 <em style=3D'font-family:"Georgia", serif;color:#232323;fon=
+t-size:17px;line-height:23px;font-style:italic'>faaaancy</em> =F0=9F=98=8E<=
+/p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>But maybe you're like "Erik, c=
+hill, it=E2=80=99s a freakin=E2=80=99 <em style=3D'font-family:"Georgia", s=
+erif;color:#232323;font-size:17px;line-height:23px;font-style:italic'>UX po=
+rtfolio</em>, <strong style=3D'font-family:"Georgia", serif;color:#232323;f=
+ont-size:17px;line-height:23px;font-weight:bold'>not a </strong><strong sty=
+le=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height=
+:23px;font-weight:bold'><em style=3D'font-family:"Georgia", serif;color:#23=
+2323;font-size:17px;line-height:23px;font-style:italic'>medieval bestiary</=
+em></strong>. It also needs to feel <em style=3D'font-family:"Georgia", ser=
+if;color:#232323;font-size:17px;line-height:23px;font-style:italic'><strong=
+ style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-he=
+ight:23px;font-weight:bold'>modern</strong></em><strong style=3D'font-famil=
+y:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weigh=
+t:bold'> and </strong><em style=3D'font-family:"Georgia", serif;color:#2323=
+23;font-size:17px;line-height:23px;font-style:italic'><strong style=3D'font=
+-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font=
+-weight:bold'>cool</strong></em>=E2=80=9D.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>And I hear you.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>That's where you can dive back=
+ in and start saying:</p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>What fo=
+nts might <a href=3D"https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4h=
+g/m2h7h5ho4l0krwhm/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi9ibG9nL2d1aWRlLXBhaXJpbmct=
+Zm9udHMuaHRtbA=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=
+=3D'font-family:"Georgia", serif;color:#232323;color:#00819d;font-size:17px=
+;line-height:23px' url-id=3D"1503996468"><em style=3D'font-family:"Georgia"=
+, serif;color:#232323;font-size:17px;line-height:23px;font-style:italic;col=
+or:#00819d'>pair</em></a> here to make it more modern/cool?</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>What de=
+sign elements can we add in to the same ends?</span></li>
+</ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>And that's where things get RE=
+ALLY cool=C2=A0=E2=80=93 because if you start combining <em style=3D'font-f=
+amily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-s=
+tyle:italic'>old and classic</em> with <em style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;font-style:italic'>mode=
+rn and technical</em>, you can see some <em style=3D'font-family:"Georgia",=
+ serif;color:#232323;font-size:17px;line-height:23px;font-style:italic'><st=
+rong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;lin=
+e-height:23px;font-weight:bold'>really</strong></em><strong style=3D'font-f=
+amily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-w=
+eight:bold'> interesting brands.</strong> Like.=E2=80=A6...</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/d=
+WfSueRuCwiENJe6Ue5hxK/email" width=3D"800" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;=
+max-width:100%;border-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Ooh la la =E2=80=93=C2=A0dot m=
+atrix plus display serif! This balanced design just puts my cold, analytica=
+l heart in a tizzy =F0=9F=98=8D</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>And I hope it does yours too.<=
+/p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Until next time!</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Cheers,<br style=3D'font-famil=
+y:"Georgia", serif;color:#232323'>Erik D. Kennedy</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>PS. My courses, <a href=3D"htt=
+ps://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/l2hehmhoxdv5grb6/aHR0c=
+HM6Ly9sZWFybnVpLmRlc2lnbg=3D=3D" target=3D"_blank" rel=3D"noopener noreferr=
+er" style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line=
+-height:23px;color:#00819d' url-id=3D"1503996467">Learn UI Design</a> and <=
+a href=3D"https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/dpheh0hqp=
+2wz3dfm/aHR0cHM6Ly9sZWFybnV4LmRlc2lnbg=3D=3D" target=3D"_blank" rel=3D"noop=
+ener noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;font-s=
+ize:17px;line-height:23px;color:#00819d' url-id=3D"1503996469">Learn UX Des=
+ign</a> <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;font-style:italic'>never go on sale</em>. But my free =
+font <a href=3D"https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/7qh=
+7h8h0nxpvglhz/aHR0cHM6Ly9mb250cy5nb29nbGUuY29tL3NwZWNpbWVuL0ZpZ3RyZWU=3D" t=
+arget=3D"_blank" rel=3D"noopener noreferrer" style=3D'font-family:"Georgia"=
+, serif;color:#232323;font-size:17px;line-height:23px;color:#00819d' url-id=
+=3D"1503996471">Figtree</a> is 100% off =E2=80=93=C2=A0<em style=3D'font-fa=
+mily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-st=
+yle:italic'>and now includes ITALICS, live on Google Fonts!</em> =F0=9F=8E=
+=89</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Also, I'm shipping <strong sty=
+le=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height=
+:23px;font-weight:bold'>custom letterpress posters</strong> to the first 25=
+ people who use Figtree for a live project=C2=A0=E2=80=93 and there are sti=
+ll a few posters left.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/o=
+f64wnf2PRBAUV1t1uLQq6/email" width=3D"800" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;=
+max-width:100%;border-radius:4px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>If you ship something with Fig=
+tree, give me a holler, and I'll hook you up =F0=9F=98=8E</p>
+</div>
+
+  <div class=3D"footer" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;border-top:1px dotted #666;padding:20px 0p=
+x;color:#4a4a4a;font-size:13px;line-height:17px;opacity:0.7'>Hi Lila! =F0=
+=9F=91=8B You got this email because you signed up for Design Hacks. I send=
+ out original UI/UX design tutorials and occasional news on my two design c=
+ourses: <a href=3D"https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/=
+z2hghnholmr9gvcp/aHR0cDovL2xlYXJudWkuZGVzaWdu" style=3D'font-family:"Georgi=
+a", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d;font-=
+size:inherit;line-height:inherit' url-id=3D"1503996473">Learn UI Design</a>=
+ &amp; <a href=3D"https://click.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg/x=
+0hph6hnq4d8g5h5/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2l=
+nbi5odG1s" style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;color:#00819d;font-size:inherit;line-height:inherit' ur=
+l-id=3D"1503996475">Learn UX Design</a>. You can <a href=3D"https://prefere=
+nces.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg" style=3D'font-family:"Georg=
+ia", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d;font=
+-size:inherit;line-height:inherit'>edit your name/email</a> or <a href=3D"h=
+ttps://unsubscribe.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg" style=3D'font=
+-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;colo=
+r:#00819d;font-size:inherit;line-height:inherit'>stop getting emails</a> if=
+ you want (don=E2=80=99t click those if you were forwarded this email =F0=
+=9F=99=82). Drop me a line if you're ever in my neck of the woods =E2=86=92=
+ PO Box 386, Maple Valley, WA 98038. Cheers!</div>
+
+</div>
+<!--[if mso]>
+  </td></tr></table>
+  </center>
+<![endif]-->
+<!-- -->
+<img src=3D"https://open.convertkit-mail.com/v8uownqnkvcrhx3rwd4hg" alt=3D"=
+" style=3D'font-family:"Georgia", serif;color:#232323'>
+</body>
+</html>
+
+--5874b1bb361247f9308d2b094dcd8136982c58eb45b0cfcdb49fe6b00105--

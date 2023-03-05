@@ -1,0 +1,820 @@
+Delivered-To: lilapapazian@gmail.com
+Received: by 2002:ac8:44cc:0:0:0:0:0 with SMTP id b12csp932201qto;
+        Wed, 18 Jan 2023 00:00:43 -0800 (PST)
+X-Google-Smtp-Source: AMrXdXsLwz06t+4oqIYdiQ/8+oCclNuF37G/vqBbM6B09q3OhCNlpjNw/5mkPvZKo+VXiFZYY5W/
+X-Received: by 2002:ac8:67d7:0:b0:3b6:666b:10ef with SMTP id r23-20020ac867d7000000b003b6666b10efmr2719576qtp.13.1674028843815;
+        Wed, 18 Jan 2023 00:00:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1674028843; cv=none;
+        d=google.com; s=arc-20160816;
+        b=FBA1io2GCSiFrnWfpaucJRGs0R9FLlBhAzCy8BhdagbZP/C8g4a6IBcT2ZCdL1nhfv
+         r8kE3q18nXYXYgHlneXxFVezQtr6Gv7fH5FTABsjalN/NSaZOnBNBdFNzKDjconRdXgd
+         Id9l6qNIFbSo31520EiG2/VbSru8TsZVtsNtoaDyJEPw/8SF46rz2kB/1N2UTjTcvuxU
+         fX+Tx53L5uUE6uz+CmYmKdYr4yK9xGs3XWaELKY3BSoim9bWfVL+s3qXWWbTU83kHxZd
+         l7htlJ8pzuBYoGW3ADrAm8fzELxSskRTj5MmYKtQBNsjkLZEZi+WXAGOc2yLYhNpCJtS
+         402g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:precedence:list-unsubscribe:feedback-id:subject:message-id
+         :mime-version:from:date:dkim-signature:dkim-signature;
+        bh=dDQngNzUtReym26KPb+VqtkwQK2z59IsrUWIHx+ztBk=;
+        b=eyxCeItM1tUogJ+cgd2JcDJCrWPgq2gtickEuGsym1hLhaGYfUEvdNXlnP0ILUe8UH
+         3fPBCNZVNUzTZ5md7SCphQSJdaxB/GnrDovXqM98Z1InZ6vn5Zi/cym/MsmJhAFW8P4Y
+         SrFt+EkoT2p/eOO9G/97PURpEfRfO7KAbj2wsMVulisS6KCj72tbdMeO/YXIsXLtami/
+         JPQjjDnlnVGDuOEcS2nKFfGWE+7G3g5xanLDZ6XHdE5VUUw9/IxkstqPyXghav5JjM5y
+         X8FdsjLCDoTqvcGmO7ChWFAbuw38ypgucxe2g6gaWg/dzeH/eF6sobRr0i6R43A/oEur
+         QANA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=tMZvBICp;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ul+DoV+J;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 168.245.93.138 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+Return-Path: <bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com>
+Received: from o10.ck.n.convertkit.com (o10.ck.n.convertkit.com. [168.245.93.138])
+        by mx.google.com with ESMTPS id p13-20020ac8740d000000b003b04cc18b5esi12975092qtq.681.2023.01.18.00.00.43
+        for <lilapapazian@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Jan 2023 00:00:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 168.245.93.138 as permitted sender) client-ip=168.245.93.138;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=tMZvBICp;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ul+DoV+J;
+       spf=pass (google.com: domain of bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com designates 168.245.93.138 as permitted sender) smtp.mailfrom="bounces+8749610-b1e3-lilapapazian=gmail.com@mail.n.convertkit.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=n.convertkit.com;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=s1; bh=dDQngNzUtReym26KPb+VqtkwQK2z59IsrUWIHx+ztBk=;
+	b=tMZvBICp5VmoQWxUISnR4Dd6tG+ZBZaFzLnRuL752YkdggMp0Exbq3UNJL02O8BB/T84
+	Vam9HQ21uT6S5RfG6PZrfKCVxM9jo+yLzvN+5cjqRwSK7e5lKtgRcu7x4LW0aCLneGnapj
+	muXQdJPZd0nvWLyRwkgaIZOWRZldP11X70Hi+3ujtZE6vHc8O//ypQNErwIxhMpcM4hF0P
+	gPMVKMmfw/+JzE2mTdn4oTV++Q7O91+iLHPh5tvF7NEr6mlnSZU2we3QosorYEAd2YGfe9
+	TwEBj8bK9UXZPNX7AGBH1I/PX060eek817APWHXp0X/R2n9JwJE3znr6PqmT2e4Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=dDQngNzUtReym26KPb+VqtkwQK2z59IsrUWIHx+ztBk=;
+	b=ul+DoV+J49kJK9o+WiJqk0VYRuIcHeUXZvqSD1XKAgs+COnsTkJFt7Hzi8PtYTpIM1OK
+	qxSNoNNSyRui50501wrWEyw8ieJWPzCpEM0aMDlsuWeYB85iMAVPlIKmU40xYehukHl+tG
+	ENZBSlNLsleJ9jDv/xo9j3Isi4QYDOZ5w=
+Received: by filterdrecv-5df9bb45b8-n99dd with SMTP id filterdrecv-5df9bb45b8-n99dd-1-63C7A72B-19
+        2023-01-18 08:00:43.119121747 +0000 UTC m=+5302351.506084045
+Received: from ODc0OTYxMA (unknown)
+	by geopod-ismtpd-canary-0 (SG) with HTTP
+	id LT4TVexAScKZnm3Qtpd6UQ
+	Wed, 18 Jan 2023 08:00:43.005 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=fa0aec332ff70cca2863af16427a4ec4ff58c50240cd8842da3d33cc86ba
+Date: Wed, 18 Jan 2023 08:00:43 +0000 (UTC)
+From: "Erik D. Kennedy" <erik@learnui.design>
+Mime-Version: 1.0
+Message-ID: <d0u2lvwvg8f0h4mg896hm@convertkit-mail.com>
+Subject: Learn UX Design is NOW OPEN for enrollment =?UTF-8?B?8J+OiQ==?=
+Feedback-ID: 9862719:39008:broadcast:CK
+List-Unsubscribe: 
+ <https://unsubscribe.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm>
+X-Report-Spam: <abuse@convertkit.com>
+X-Report-Abuse: <abuse@convertkit.com>
+Precedence: bulk
+X-Feedback-ID: 8749610:SG
+X-SG-EID: 
+ =?us-ascii?Q?EDG+KXEj7hMIzJV17jd5qsGcPZPEO4TsG4phGcpDP3WLU7hbEUvMpOEUmBbgkZ?=
+ =?us-ascii?Q?Hm2NaOmOBejwPTE2rTyqmytWdDYCI31mvnF32c3?=
+ =?us-ascii?Q?QbWYyp1nrBjAB9CH9lXt1skaRO1nXK=2FMLHsMh4s?=
+ =?us-ascii?Q?7GvY73yv=2FYqoWtcSZegr+X6dO8MNWNbiBmelySX?=
+ =?us-ascii?Q?oOfEkg3683L=2FJyhSxKMJsQa6wVe=2FOboKpaEYV08?=
+ =?us-ascii?Q?l4zvfb=2FvHdRTfu9MAZ2wEkp6L94sOrTKZdtwQJ?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJHjDFAea1uZocvZojyqe?=
+ =?us-ascii?Q?ADXr5EUCaXEblBOTXLWg1KrBF=2FTPo0t+LfW9q+z?=
+ =?us-ascii?Q?clRBw7WhqxeBtCmaosr=2F13RBHdl1z9QH4Yc1yLd?=
+ =?us-ascii?Q?if04lRz4tYYzilWRmsBktI4Np5MYWbBft99YiTt?=
+ =?us-ascii?Q?tDSjeoGYQzv43tN9jMYxst7Ll6BGMWCQiyOGBqm?=
+ =?us-ascii?Q?+2BGOgHHJBMO5XN4+lCvsS6rM=2F=2FUTVMHtCy8ljA?=
+ =?us-ascii?Q?AuneO3U0H8fMay5KmM4nocjrKaVjkJpPA03BgsD?=
+ =?us-ascii?Q?UcKSDS59QKPUhlxn4D=2Fo28gK5gHj9S2MGeQGzc3?=
+ =?us-ascii?Q?+RkNfy+Idz4SlrRTVVEFTAtGENUgvLGH8KNAmWG?=
+ =?us-ascii?Q?SMk2q41G2n?=
+To: Lila <lilapapazian@gmail.com>
+X-Entity-ID: JG8Lqh/QTEp30TAc2PSDRA==
+
+--fa0aec332ff70cca2863af16427a4ec4ff58c50240cd8842da3d33cc86ba
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hey Lila,
+
+I'll cut to the chase: Learn UX Design is now open for enrollment
+(
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/9qh2w48ktnhg8pp930b=
+9/aHR0cHM6Ly9sZWFybnV4LmRlc2lnbiNlbnJvbGwtbm93
+) =F0=9F=99=8C
+
+(So is Learn UI design (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/n2hohvhn433r5qa6/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbg=3D=3D
+), BTW =F0=9F=99=82)
+
+Learn UX Design is a comprehensive online video course for those
+looking to build usable, intuitive web and mobile apps. It covers
+everything:
+
+* Design patterns for common problems =E2=80=93 search, forms,
+navigation, etc.
+* Easy fixes for common usability problems
+* Flows, wireframes, and prototypes
+* User research =E2=80=93 interviews, surveys, and more
+* Usability testing
+
+There are 37 lessons totaling over 22 hours of content, access to
+a student community for feedback/mentorship, and dozens of
+downloads =E2=80=93 homework assignments, PDF cheatsheets, and more.
+
+Plus, all students get immediate and lifetime access to the
+entire course, including all future updates.
+
+*********************************************
+Why are so many UX courses SO theory-heavy? =F0=9F=98=AC
+*********************************************
+
+From the initial outlines, Learn UX Design was designed to be
+different. Unlike most others you'll find, this is a
+practitioner=E2=80=99s course.
+
+That means instead of starting with the theory of design, or the
+history of design, or the full design process, or a taxonomy of
+design methods, etc. we're going to hit the ground running with a
+deep dive into interaction design: the art of making confusing,
+complex interfaces simple and intuitive.
+
+(Technically, the course starts by telling you where the
+play-at-2x-speed button is, so you can zoom through whatever you
+already know, and skip to what=E2=80=99s immediately useful to you and
+your work)
+
+The net result is a course that's shockingly practical.
+
+=E2=80=8B
+=E2=80=8B
+
+=E2=80=8B
+What's in the course? I'm glad you asked =F0=9F=99=82
+
+The Syllabus
+
+Learn UX Design is a ruthlessly analytical breakdown of the
+skills necessary to make intuitive apps that elegantly solve a
+user's problem.
+
+Unit-by-unit, here=E2=80=99s an overview of the course.
+
+I. INTRODUCTION
+
+A quick jaunt through the basics, like how to use the course, how
+to get set up for rapid wireframing, and how to start putting
+together a personal =E2=80=9CUX reference library=E2=80=9D.
+
+II. FUNDAMENTALS OF INTERACTION DESIGN
+
+The first major unit of the course, we dive deep into usability,
+breaking it down by eight heuristics =E2=80=93 that is, short, pithy
+rules that apply across a huge variety of situations, a la =E2=80=9CObey
+the Laws of Locality (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/48hvheh03rrgq8ax/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbi9ibG9nL3RoZS0zLWxhd3Mtb2YtbG9jYWxpdHkuaHRtbA=3D=
+=3D
+)=E2=80=9D or =E2=80=9CThink like user, not like a database=E2=80=9D. We st=
+art here
+because these heuristics apply to everything. Not only am I
+constantly repeating them throughout the remainder the course,
+but they are the first principles that will help you understand
+why best practices are actually best, and what precisely to do
+with user feedback.
+
+III. DESIGN PATTERNS & BEST PRACTICES
+
+Next, we slice up usability by a different axis =E2=80=93 interface
+components. This unit covers hundreds of best practices broken up
+by what part of the UI you=E2=80=99re actually talking about =E2=80=93 sear=
+ching,
+filtering, navigation, text input, data tables, etc. Half-video
+library, half reference resource, this lesson has the highest
+concentration of PDF cheatsheets for download and future
+reference =E2=80=93 saving you from having to rewatch the 8+ hours of
+video every time you need to design a new search control.
+
+IV. RESEARCH & TESTING
+
+Chronologically, user research comes first. But in Learn UX
+Design, we want all students to be able to make quick fixes to
+existing interfaces =E2=80=93 so we cover interaction design first.
+
+In the Research & Testing unit, we return to the first steps: the
+interviewing, surveying, and sketching out flows that form the
+foundation of a UX project.
+
+We dive into the specific mindsets and frameworks to turn even
+the smallest conversation with a user into something that gives
+you actionable design knowledge. The videos show me performing
+actual live user research and testing =E2=80=93 and pausing to narrate to
+you, the viewer, my thought process the entire way.
+
+V. COMMUNICATING DESIGN
+
+Finally, we arrive at the last unit, where we get ready to
+present designs, get good design feedback, create portfolios,
+interview, and =E2=80=93 sadly, this is still necessary =E2=80=93 try and s=
+ell
+our teams on the value of UX design.
+
+You can see the full syllabus here (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/wnh2hghrdwwgvpc7/aH=
+R0cHM6Ly9sZWFybnV4LmRlc2lnbi8jc3lsbGFidXM=3D
+).
+
+=E2=80=8B
+FAQ
+
+Q: How is Learn UX Design different from Learn UI Design?
+
+=E2=80=8BLearn UI Design (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/n2hohvhn433r5qa6/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbg=3D=3D
+) is about making apps LOOK GOOD =E2=80=93 and focuses on things like
+color, typography, spacing, alignment, etc.
+
+=E2=80=8BLearn UX Design (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/reh8hohqp00xvls2/aH=
+R0cHM6Ly9sZWFybnV4LmRlc2lnbg=3D=3D
+) is about making apps USABLE & USEFUL =E2=80=93 and focuses on things
+like best practice design patterns, user research, usability
+testing, etc.
+
+Q: You said Learn UX Design is about =E2=80=9Capp=E2=80=9D design. How do y=
+ou
+define =E2=80=9Capps=E2=80=9D?
+
+Web apps, mobile apps, desktop apps =E2=80=93 anything with a significant
+interactive component is an app.
+
+Learn UX Design is NOT about designing =E2=80=9Cread-only=E2=80=9D (or even
+=E2=80=9Cread-mostly=E2=80=9D) sites like blogs, informational sites, landi=
+ng
+pages, etc.
+
+Q: Will Learn UX Design help me create a portfolio and get a UX
+job?
+
+Yes.
+
+In short, there are 2 "tracks" through this course. You can
+either (1) build your skills by watching the videos in order (and
+then referring back to them as a reference) or (2) build a
+portfolio as you go through the videos. For the second case, I
+recommend (in the course) a different order of videos, and give
+you special resources, tasks, and instructions to help you build
+your first design portfolio.
+
+Q: Are there any discounts?
+
+There=E2=80=99s one discount: a business license of 5+ seats is 30% off
+(and seat count applies across both Learn UI Design and Learn UX
+Design). 10+ seats have even greater discounts. Email me if
+interested.
+
+=E2=80=8B
+Introducing: Learn UX Design, the complete online video course
+for non-designers who want to create intuitive, usable apps for
+web and mobile.
+
+Enroll now and get:
+
+* Instant =E2=80=93 and lifetime =E2=80=93 access to the 22+ hour video cou=
+rse
+* Dozens of homework assignments and downloads to supplement your
+learning
+* An invite to the Learn UX Design Student Community, where you
+can get feedback, design reviews, and talk shop with other
+beginning designers
+
+Comes with a no-questions-asked, 30-day money-back guarantee.
+Signups end in 7 days.
+
+-->Enroll Now (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/m2h5g0wms5hox88e0da=
+m/aHR0cHM6Ly93d3cubGVhcm51aS5kZXNpZ24vY291cnNlcy9sZWFybi11eC1kZXNpZ24uaHRtb=
+CNlbnJvbGwtbm93
+)
+Enroll Now (
+https://www.learnui.design/courses/learn-ux-design.html#enroll-now
+)Any questions or issues signing up? Let me know =E2=80=93 I=E2=80=99ll be
+standing by =F0=9F=98=8E
+
+Best,Erik D. Kennedy
+
+PS. The price of Learn UX Design will be going up by $500 soon,
+so if you're on the fence, this is the month to enroll =F0=9F=91=8D
+
+Hi Lila! =F0=9F=91=8B You got this email because you signed up for Design
+Hacks. I send out original UI/UX design tutorials and occasional
+news on my two design courses: Learn UI Design (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/8ghqhohg8ll9prck/aH=
+R0cDovL2xlYXJudWkuZGVzaWdu
+) & Learn UX Design (
+https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/vqh3hrhn6ppg3qtg/aH=
+R0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2lnbi5odG1s
+). You can edit your name/email (
+https://preferences.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm )
+or stop getting emails (
+https://unsubscribe.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm )
+if you want (don=E2=80=99t click those if you were forwarded this email
+=F0=9F=99=82). Drop me a line if you're ever in my neck of the woods =E2=86=
+=92 PO
+Box 386, Maple Valley, WA 98038. Cheers!
+--fa0aec332ff70cca2863af16427a4ec4ff58c50240cd8842da3d33cc86ba
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html style=3D'font-family:"Georgia", serif;color:#232323'>
+<head style=3D'font-family:"Georgia", serif;color:#232323'>
+
+<!--[if mso]>
+  <center>
+  <table><tr><td width=3D"580">
+<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" st=
+yle=3D'font-family:"Georgia", serif;color:#232323'>
+</head>
+<body style=3D'font-family:"Georgia", serif;color:#232323'>
+<div class=3D"message-content" style=3D'font-family:"Georgia", serif;color:=
+#232323;font-size:17px;line-height:23px;margin:0 auto;max-width:600px'>
+
+  <div class=3D"dh-header" style=3D'font-family:"Georgia", serif;color:#232=
+323;font-size:17px;line-height:23px;margin-bottom:30px;border-radius:2px;ba=
+ckground-color:#232323'>
+    <img src=3D"https://learnui.design/extras/img/dh-email-header-hd.png" c=
+lass=3D"dh-header__img" alt=3D"Design Hacks Newsletter" style=3D'font-famil=
+y:"Georgia", serif;color:#232323;display:block;margin:0 auto;width:174px;pa=
+dding:10px 0;max-width:100%;height:auto;border-radius:0;width: 174px;'>
+  </div>
+
+  <div class=3D"spaced-contents" style=3D'font-family:"Georgia", serif;colo=
+r:#232323;font-size:17px;line-height:23px'>
+<!--[if mso]><style>.button-table { padding: 12px 0 }</style><![endif]-->
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Hey Lila,</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>I'll cut to the chase: <a href=
+=3D"https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/9qh2w48ktnhg8pp=
+930b9/aHR0cHM6Ly9sZWFybnV4LmRlc2lnbiNlbnJvbGwtbm93" trigger-id=3D"3175564" =
+target=3D"_blank" rel=3D"noopener noreferrer" style=3D'font-family:"Georgia=
+", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d' url-i=
+d=3D"1515669806">Learn UX Design is now open for enrollment</a> =F0=9F=99=
+=8C</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>(So is <a href=3D"https://clic=
+k.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/n2hohvhn433r5qa6/aHR0cHM6Ly9sZW=
+FybnVpLmRlc2lnbg=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=
+=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:2=
+3px;color:#00819d' url-id=3D"1515669807">Learn UI design</a>, BTW =F0=9F=99=
+=82)</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Learn UX Design is a comprehen=
+sive online video course for those looking to build <strong style=3D'font-f=
+amily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-w=
+eight:bold'>usable, intuitive web and mobile apps</strong>. It covers every=
+thing: </p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Design =
+patterns for common problems =E2=80=93 search, forms, navigation, etc.</spa=
+n></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Easy fi=
+xes for common usability problems</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Flows, =
+wireframes, and prototypes</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>User re=
+search =E2=80=93 interviews, surveys, and more</span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Usabili=
+ty testing </span></li>
+</ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>There are <strong style=3D'fon=
+t-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;fon=
+t-weight:bold'>37 lessons</strong> totaling <strong style=3D'font-family:"G=
+eorgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:bo=
+ld'>over 22 hours of content</strong>, access to a<strong style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-wei=
+ght:bold'> student community for feedback/mentorship</strong>, and <strong =
+style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-hei=
+ght:23px;font-weight:bold'>dozens of downloads</strong> =E2=80=93 homework =
+assignments, PDF cheatsheets, and more. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Plus, all students <strong sty=
+le=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height=
+:23px;font-weight:bold'>get immediate and lifetime access</strong> to the e=
+ntire course, including all future updates.</p>
+<h1 style=3D'font-family:"Georgia", serif;color:#232323;line-height:1.1;mar=
+gin:32px 0 16px;font-weight:bold;font-size:27px'>Why are so many UX courses=
+ SO theory-heavy? =F0=9F=98=AC</h1>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>From the initial outlines, Lea=
+rn UX Design was designed to be <em style=3D'font-family:"Georgia", serif;c=
+olor:#232323;font-size:17px;line-height:23px;font-style:italic'>different</=
+em>. Unlike most others you'll find, this is a <strong style=3D'font-family=
+:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight=
+:bold'>practitioner=E2=80=99s course</strong>.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>That means instead of starting=
+ with the theory of design, or the history of design, or the full design pr=
+ocess, or a taxonomy of design methods, etc. we're going to hit the ground =
+running with a deep dive into <strong style=3D'font-family:"Georgia", serif=
+;color:#232323;font-size:17px;line-height:23px;font-weight:bold'>interactio=
+n design</strong>: the art of making confusing, complex interfaces <strong =
+style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-hei=
+ght:23px;font-weight:bold'>simple and intuitive.</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>(Technically, the course start=
+s by telling you where the <strong style=3D'font-family:"Georgia", serif;co=
+lor:#232323;font-size:17px;line-height:23px;font-weight:bold'>play-at-2x-sp=
+eed button</strong> is, so you can zoom through whatever you already know, =
+and skip to what=E2=80=99s immediately useful to you and your work) </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>The net result is a course tha=
+t's <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;=
+line-height:23px;font-style:italic'>shockingly practical</em>.</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/q=
+DTPB6evQjWXK2mh7aU6mo/email" width=3D"800" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;=
+max-width:100%;border-radius:4px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>=E2=80=8B</p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/p=
+PstiuusAiZtS1syX3s5Bo/email" width=3D"800" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;=
+max-width:100%;border-radius:4px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>What's in the course? I'm glad=
+ you asked =F0=9F=99=82</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><span style=3D'font-family:"Ge=
+orgia", serif;color:#232323;font-size:17px;line-height:23px;font-size:24px'=
+><strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px=
+;line-height:23px;font-weight:bold'>The Syllabus</strong></span></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Learn UX Design is a ruthlessl=
+y analytical breakdown of the skills necessary to make <em style=3D'font-fa=
+mily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-st=
+yle:italic'>intuitive apps that elegantly solve a user's problem</em>. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Unit-by-unit, here=E2=80=99s a=
+n overview of the course. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>I. INTRODUCTION</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>A quick jaunt through the basi=
+cs, like how to use the course, how to get set up for rapid wireframing, an=
+d how to start putting together a personal =E2=80=9CUX reference library=E2=
+=80=9D.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>II. FUNDAMENTALS OF INTERACTION DESIGN</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>The first major unit of the co=
+urse, we dive deep into usability, breaking it down by <strong style=3D'fon=
+t-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;fon=
+t-weight:bold'>eight </strong><strong style=3D'font-family:"Georgia", serif=
+;color:#232323;font-size:17px;line-height:23px;font-weight:bold'><em style=
+=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:2=
+3px;font-style:italic'>heuristics</em></strong> =E2=80=93 that is, short, p=
+ithy rules that apply across a huge variety of situations, a la =E2=80=9COb=
+ey the <a href=3D"https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/4=
+8hvheh03rrgq8ax/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi9ibG9nL3RoZS0zLWxhd3Mtb2YtbG9=
+jYWxpdHkuaHRtbA=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=
+=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:2=
+3px;color:#00819d' url-id=3D"1515669808">Laws of Locality</a>=E2=80=9D or =
+=E2=80=9CThink like user, not like a database=E2=80=9D. We start here becau=
+se <strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;font-weight:bold'>these heuristics apply to </strong><e=
+m style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-h=
+eight:23px;font-style:italic'><strong style=3D'font-family:"Georgia", serif=
+;color:#232323;font-size:17px;line-height:23px;font-weight:bold'>everything=
+</strong></em>. Not only am I constantly repeating them throughout the rema=
+inder the course, but they are the <em style=3D'font-family:"Georgia", seri=
+f;color:#232323;font-size:17px;line-height:23px;font-style:italic'>first pr=
+inciples</em> that will help you understand why best practices are actually=
+ <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;lin=
+e-height:23px;font-style:italic'>best</em>, and <em style=3D'font-family:"G=
+eorgia", serif;color:#232323;font-size:17px;line-height:23px;font-style:ita=
+lic'>what</em> precisely to do with user feedback. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>III. DESIGN PATTERNS &amp; BEST PRACTICES</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Next, we slice up usability by=
+ a different axis =E2=80=93 <em style=3D'font-family:"Georgia", serif;color=
+:#232323;font-size:17px;line-height:23px;font-style:italic'>interface compo=
+nents</em>. This unit covers <strong style=3D'font-family:"Georgia", serif;=
+color:#232323;font-size:17px;line-height:23px;font-weight:bold'>hundreds of=
+ best practices</strong> broken up by <em style=3D'font-family:"Georgia", s=
+erif;color:#232323;font-size:17px;line-height:23px;font-style:italic'>what =
+part of the UI you=E2=80=99re actually talking about</em> =E2=80=93 searchi=
+ng, filtering, navigation, text input, data tables, etc. Half-video library=
+, half reference resource, this lesson has the highest concentration of PDF=
+ cheatsheets for download and future reference =E2=80=93 saving you from ha=
+ving to rewatch the 8+ hours of video every time you need to design a new s=
+earch control.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>IV. RESEARCH &amp; TESTING</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Chronologically, user research=
+ comes first. But in Learn UX Design, we want all students to be able to ma=
+ke quick fixes to existing interfaces =E2=80=93=C2=A0so we cover interactio=
+n design first.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>In the Research &amp; Testing =
+unit, we return to the first steps: the interviewing, surveying, and sketch=
+ing out flows that form the foundation of a UX project.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>We dive into the <strong style=
+=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:2=
+3px;font-weight:bold'>specific mindsets and frameworks</strong> to turn eve=
+n the smallest conversation with a user into something that gives you <em s=
+tyle=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-heig=
+ht:23px;font-style:italic'>actionable design knowledge</em>. The videos sho=
+w me performing <strong style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;font-weight:bold'>actual live user researc=
+h and testing</strong> =E2=80=93 and pausing to narrate to you, the viewer,=
+ my thought process the entire way.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>V. COMMUNICATING DESIGN</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Finally, we arrive at the last=
+ unit, where we get ready to present designs, get good design feedback, cre=
+ate portfolios, interview, and =E2=80=93 sadly, this is still necessary =E2=
+=80=93 <em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;font-style:italic'>try and sell our teams on the value =
+of UX design</em>. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>You can see the <a href=3D"htt=
+ps://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/wnh2hghrdwwgvpc7/aHR0c=
+HM6Ly9sZWFybnV4LmRlc2lnbi8jc3lsbGFidXM=3D" target=3D"_blank" rel=3D"noopene=
+r noreferrer" style=3D'font-family:"Georgia", serif;color:#232323;font-size=
+:17px;line-height:23px;color:#00819d' url-id=3D"1515669809">full syllabus h=
+ere</a>. </p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:800px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:800px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/u=
+cu9EWtyDfSDxPxwc11wza/email" width=3D"800" style=3D'font-family:"Georgia", =
+serif;color:#232323;max-width:100%;height:auto;border-radius:0;width:800px;=
+max-width:100%;border-radius:4px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><span style=3D'font-family:"Ge=
+orgia", serif;color:#232323;font-size:17px;line-height:23px;font-size:24px'=
+><strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px=
+;line-height:23px;font-weight:bold'>FAQ</strong></span></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>Q: How is Learn UX Design different from Learn UI Design?</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>=E2=80=8B<a href=3D"https://cl=
+ick.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/n2hohvhn433r5qa6/aHR0cHM6Ly9s=
+ZWFybnVpLmRlc2lnbg=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" sty=
+le=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height=
+:23px;color:#00819d' url-id=3D"1515669807">Learn UI Design</a> is about mak=
+ing apps LOOK GOOD =E2=80=93 and focuses on things like color, typography, =
+spacing, alignment, etc.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>=E2=80=8B<a href=3D"https://cl=
+ick.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/reh8hohqp00xvls2/aHR0cHM6Ly9s=
+ZWFybnV4LmRlc2lnbg=3D=3D" target=3D"_blank" rel=3D"noopener noreferrer" sty=
+le=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height=
+:23px;color:#00819d' url-id=3D"1515669810">Learn UX Design</a> is about mak=
+ing apps USABLE &amp; USEFUL =E2=80=93 and focuses on things like best prac=
+tice design patterns, user research, usability testing, etc. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>Q: You said Learn UX Design is about =E2=80=9Capp=E2=80=9D design. How=
+ do you define =E2=80=9Capps=E2=80=9D?</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Web apps, mobile apps, desktop=
+ apps =E2=80=93=C2=A0anything with a <strong style=3D'font-family:"Georgia"=
+, serif;color:#232323;font-size:17px;line-height:23px;font-weight:bold'>sig=
+nificant interactive component</strong> is an <em style=3D'font-family:"Geo=
+rgia", serif;color:#232323;font-size:17px;line-height:23px;font-style:itali=
+c'>app</em>.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Learn UX Design is <em style=
+=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-height:2=
+3px;font-style:italic'>NOT</em> about designing =E2=80=9Cread-only=E2=80=9D=
+ (or even =E2=80=9Cread-mostly=E2=80=9D) sites like blogs, informational si=
+tes, landing pages, etc. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>Q: Will Learn UX Design help me create a portfolio and get a UX job?</=
+strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Yes.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>In short, there are 2 "tracks"=
+ through this course. You can either (1) <strong style=3D'font-family:"Geor=
+gia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:bold'=
+>build your skills</strong> by watching the videos in order (and then refer=
+ring back to them as a reference) or (2) <strong style=3D'font-family:"Geor=
+gia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:bold'=
+>build a portfolio</strong> as you go through the videos. For the second ca=
+se, I recommend (in the course) a different order of videos, and give you s=
+pecial resources, tasks, and instructions to help you build your first desi=
+gn portfolio.</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'><strong style=3D'font-family:"=
+Georgia", serif;color:#232323;font-size:17px;line-height:23px;font-weight:b=
+old'>Q: Are there any discounts?</strong></p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>There=E2=80=99s one discount: =
+<em style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line=
+-height:23px;font-style:italic'>a business license of 5+ seats is 30% off</=
+em> (and seat count applies across both Learn UI Design and Learn UX Design=
+). 10+ seats have even greater discounts. Email me if interested. </p>
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D'font-family:"Georgia", serif;color:#232323;table-layout:fixed' class=
+=3D"email-image"><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><figure style=3D'=
+font-family:"Georgia", serif;color:#232323;margin:30px 0;display:block;marg=
+in:12px 0;max-width:100%;width:600px'><div style=3D'font-family:"Georgia", =
+serif;color:#232323;font-size:17px;line-height:23px;display:block;max-width=
+:600px'><img src=3D"https://embed.filekitcdn.com/e/gJxGcuzsv4KXrV4Q8BDmRk/o=
+GrT8LCT91oTgWo17pH1yB/email" alt=3D'"Learn UX Design is 100x more interesti=
+ng than every other UX course I=E2=80=99ve tried. Everything is explained s=
+o well, and with great examples!" =E2=80=93 Brianna Deleasa, Freelance Web =
+Developer ' width=3D"600" style=3D'font-family:"Georgia", serif;color:#2323=
+23;max-width:100%;height:auto;border-radius:0;width:600px;max-width:100%;bo=
+rder-radius:0px'></div>
+<figcaption style=3D'font-family:"Georgia", serif;color:#232323;font-size:1=
+7px;line-height:23px;margin:12px 0 24px;text-align:center;font-style:italic=
+;opacity:0.8;text-align:center;display:none'>=E2=80=8B</figcaption></figure=
+></td></tr></tbody></table>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Introducing: Learn UX Design, =
+the complete online video course for non-designers who want to create intui=
+tive, usable apps for web and mobile. </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Enroll now and get: </p>
+<ul class=3D"unordered_list" style=3D'font-family:"Georgia", serif;color:#2=
+32323;font-size:17px;line-height:23px;margin-top:0;margin-bottom:10px;paddi=
+ng-top:10px;list-style-position:inside'>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'><strong=
+ style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-he=
+ight:23px;font-weight:bold'>Instant =E2=80=93 and lifetime =E2=80=93 access=
+</strong> to the 22+ hour video course </span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>Dozens =
+of <strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;font-weight:bold'>homework assignments and downloads</s=
+trong> to supplement your learning </span></li>
+<li class=3D"list_item" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;margin-bottom:5px'><span style=3D'font-fam=
+ily:"Georgia", serif;color:#232323;font-size:17px;line-height:23px'>An invi=
+te to the Learn UX Design <strong style=3D'font-family:"Georgia", serif;col=
+or:#232323;font-size:17px;line-height:23px;font-weight:bold'>Student Commun=
+ity</strong>, where you can get feedback, design reviews, and talk shop wit=
+h other beginning designers </span></li>
+</ul>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Comes with a no-questions-aske=
+d, <strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;font-weight:bold'>30-day money-back guarantee</strong>.=
+ Signups end in 7 days.</p>
+<!--[if !mso]>--><table width=3D"100%" style=3D'font-family:"Georgia", seri=
+f;color:#232323'><tbody style=3D'font-family:"Georgia", serif;color:#232323=
+'><tr style=3D'font-family:"Georgia", serif;color:#232323'><td align=3D"cen=
+ter" style=3D'font-family:"Georgia", serif;color:#232323'><a class=3D"email=
+-button" href=3D"https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/m2=
+h5g0wms5hox88e0dam/aHR0cHM6Ly93d3cubGVhcm51aS5kZXNpZ24vY291cnNlcy9sZWFybi11=
+eC1kZXNpZ24uaHRtbCNlbnJvbGwtbm93" target=3D"_blank" rel=3D"noopener norefer=
+rer" style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;lin=
+e-height:23px;color:#00819d;border-width:1px;border-color:#0080a2;backgroun=
+d-color:#0080a2;box-sizing:border-box;border-radius:4px;border-style:solid;=
+color:#ffffff;display:block;width:100%;text-align:center;text-decoration:no=
+ne;padding:12px 20px;margin:8px 0;font-size:16px' trigger-id=3D"3548841" ur=
+l-id=3D"1515669811"><strong style=3D'font-family:"Georgia", serif;color:#23=
+2323;font-size:17px;line-height:23px;font-weight:bold;color:#00819d;color:#=
+fff !important'>Enroll Now</strong></a></td></tr></tbody></table>
+<!--<![endif]--><!--[if mso]><table class=3D"button-table" width=3D"100%" b=
+order=3D"0" cellSpacing=3D"0" cellPadding=3D"0" style=3D"margin:8px 0"><tr>=
+<td align=3D"center"><table border=3D"0" cellSpacing=3D"0" cellPadding=3D"0=
+" width=3D"100%"><tr><td align=3D"center" bgcolor=3D"#0080a2" style=3D"back=
+ground-color:#0080a2;border-radius:4px;overflow:hidden;padding:12px 20px"><=
+a class=3D"email-button" href=3D"https://www.learnui.design/courses/learn-u=
+x-design.html#enroll-now" target=3D"_blank" rel=3D"noopener noreferrer" sty=
+le=3D"background-color:inherit;display:inline-block;text-decoration:none;bo=
+rder-width:1px;border-style:solid;margin:0;color:#ffffff;border-color:#0080=
+a2;font-size:16px" trigger-id=3D"3548841"><strong>Enroll Now</strong></a></=
+td></tr></table></td></tr></table><![endif]--><p style=3D'font-family:"Geor=
+gia", serif;color:#232323;font-size:17px;line-height:23px;margin-top:0;marg=
+in-bottom:10px'>Any questions or issues signing up? Let me know =E2=80=93 I=
+=E2=80=99ll be standing by =F0=9F=98=8E </p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>Best,<br style=3D'font-family:=
+"Georgia", serif;color:#232323'>Erik D. Kennedy</p>
+<p style=3D'font-family:"Georgia", serif;color:#232323;font-size:17px;line-=
+height:23px;margin-top:0;margin-bottom:10px'>PS. The price of Learn UX Desi=
+gn <strong style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;font-weight:bold'>will be going up by $500 soon</strong=
+>, so if you're on the fence, this is the month to enroll =F0=9F=91=8D</p>
+</div>
+
+  <div class=3D"footer" style=3D'font-family:"Georgia", serif;color:#232323=
+;font-size:17px;line-height:23px;border-top:1px dotted #666;padding:20px 0p=
+x;color:#4a4a4a;font-size:13px;line-height:17px;opacity:0.7'>Hi Lila! =F0=
+=9F=91=8B You got this email because you signed up for Design Hacks. I send=
+ out original UI/UX design tutorials and occasional news on my two design c=
+ourses: <a href=3D"https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/=
+8ghqhohg8ll9prck/aHR0cDovL2xlYXJudWkuZGVzaWdu" style=3D'font-family:"Georgi=
+a", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d;font-=
+size:inherit;line-height:inherit' url-id=3D"1515669812">Learn UI Design</a>=
+ &amp; <a href=3D"https://click.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm/v=
+qh3hrhn6ppg3qtg/aHR0cHM6Ly9sZWFybnVpLmRlc2lnbi9jb3Vyc2VzL2xlYXJuLXV4LWRlc2l=
+nbi5odG1s" style=3D'font-family:"Georgia", serif;color:#232323;font-size:17=
+px;line-height:23px;color:#00819d;font-size:inherit;line-height:inherit' ur=
+l-id=3D"1515669813">Learn UX Design</a>. You can <a href=3D"https://prefere=
+nces.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm" style=3D'font-family:"Georg=
+ia", serif;color:#232323;font-size:17px;line-height:23px;color:#00819d;font=
+-size:inherit;line-height:inherit'>edit your name/email</a> or <a href=3D"h=
+ttps://unsubscribe.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm" style=3D'font=
+-family:"Georgia", serif;color:#232323;font-size:17px;line-height:23px;colo=
+r:#00819d;font-size:inherit;line-height:inherit'>stop getting emails</a> if=
+ you want (don=E2=80=99t click those if you were forwarded this email =F0=
+=9F=99=82). Drop me a line if you're ever in my neck of the woods =E2=86=92=
+ PO Box 386, Maple Valley, WA 98038. Cheers!</div>
+
+</div>
+<!--[if mso]>
+  </td></tr></table>
+  </center>
+<![endif]-->
+<!-- -->
+<img src=3D"https://open.convertkit-mail.com/d0u2lvwvg8f0h4mg896hm" alt=3D"=
+" style=3D'font-family:"Georgia", serif;color:#232323'>
+</body>
+</html>
+
+--fa0aec332ff70cca2863af16427a4ec4ff58c50240cd8842da3d33cc86ba--
