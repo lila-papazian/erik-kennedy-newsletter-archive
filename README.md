@@ -11,3 +11,7 @@ I have gotten lots of knowledge from Erik's email. I can't keep the emails in my
 | Header      | Title         |  See the file
 | Header      | Title         |  See the file
 | Header      | Title         |  See the file
+
+
+## Tools
+I'm using [this excellent tool](https://euangoddard.github.io/clipboard2markdown/) from [Euan Goddard](https://github.com/euangoddard)
