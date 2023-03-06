@@ -4,7 +4,7 @@
 I have gotten lots of knowledge from Erik's email. I can't keep the emails in my inbox forever (I'm a fan of the inbox-zero method)
 
 
-> If you have an email that it's not listed here, please send it to me so I can add it here.
+> If you have an email that it's not listed here, please send it to me so I can add it to the archive.
 
 | Date        | Email subject 
 | ----------- | -----------   
